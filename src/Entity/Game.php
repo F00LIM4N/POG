@@ -48,6 +48,26 @@ class Game
 
     #[ORM\Column]
     private ?bool $isAvailable = null;
+
+    #[ORM\ManyToMany(targetEntity: category::class)]
+    private Collection $category;
+
+    #[ORM\ManyToMany(targetEntity: mod::class)]
+    private Collection $gamemode;
+
+    #[ORM\ManyToMany(targetEntity: order::class)]
+    private Collection $gameorder;
+
+    #[ORM\ManyToMany(targetEntity: platform::class)]
+    private Collection $platform;
+
+    public function __construct()
+    {
+        $this->category = new ArrayCollection();
+        $this->gamemode = new ArrayCollection();
+        $this->gameorder = new ArrayCollection();
+        $this->platform = new ArrayCollection();
+    }
     
     public function getId(): ?int
     {
@@ -170,6 +190,102 @@ class Game
     public function setIsAvailable(bool $isAvailable): self
     {
         $this->isAvailable = $isAvailable;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, category>
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
+    public function addCategory(category $category): self
+    {
+        if (!$this->category->contains($category)) {
+            $this->category->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(category $category): self
+    {
+        $this->category->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, mod>
+     */
+    public function getGamemode(): Collection
+    {
+        return $this->gamemode;
+    }
+
+    public function addGamemode(mod $gamemode): self
+    {
+        if (!$this->gamemode->contains($gamemode)) {
+            $this->gamemode->add($gamemode);
+        }
+
+        return $this;
+    }
+
+    public function removeGamemode(mod $gamemode): self
+    {
+        $this->gamemode->removeElement($gamemode);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, order>
+     */
+    public function getGameorder(): Collection
+    {
+        return $this->gameorder;
+    }
+
+    public function addGameorder(order $gameorder): self
+    {
+        if (!$this->gameorder->contains($gameorder)) {
+            $this->gameorder->add($gameorder);
+        }
+
+        return $this;
+    }
+
+    public function removeGameorder(order $gameorder): self
+    {
+        $this->gameorder->removeElement($gameorder);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, platform>
+     */
+    public function getPlatform(): Collection
+    {
+        return $this->platform;
+    }
+
+    public function addPlatform(platform $platform): self
+    {
+        if (!$this->platform->contains($platform)) {
+            $this->platform->add($platform);
+        }
+
+        return $this;
+    }
+
+    public function removePlatform(platform $platform): self
+    {
+        $this->platform->removeElement($platform);
 
         return $this;
     }
