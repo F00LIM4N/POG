@@ -17,7 +17,7 @@ class Game
     private ?int $id = null;
 
     #[ORM\ManyToOne]
-    private ?promo $id_promo = null;
+    private ?promo $promo = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -76,12 +76,12 @@ class Game
 
     public function getIdPromo(): ?promo
     {
-        return $this->id_promo;
+        return $this->promo;
     }
 
-    public function setIdPromo(?promo $id_promo): self
+    public function setIdPromo(?promo $promo): self
     {
-        $this->id_promo = $id_promo;
+        $this->promo = $promo;
 
         return $this;
     }
