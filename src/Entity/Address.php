@@ -15,7 +15,7 @@ class Address
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?city $city = null;
+    private ?City $city = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name_address = null;
@@ -28,12 +28,12 @@ class Address
         return $this->id;
     }
 
-    public function getCity(): ?city
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(?city $city): self
+    public function setCity(?City $city): self
     {
         $this->city = $city;
 
@@ -62,5 +62,14 @@ class Address
         $this->number_address = $number_address;
 
         return $this;
+    }
+    /**
+     * Transform to string
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 }

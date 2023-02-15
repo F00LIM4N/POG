@@ -18,15 +18,15 @@ class User
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?role $role = null;
+    private ?Role $role = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?address $address = null;
+    private ?Address $address = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?twofa $authentification = null;
+    private ?Twofa $authentification = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lastname_user = null;
@@ -69,36 +69,36 @@ class User
         return $this->id;
     }
 
-    public function getRole(): ?role
+    public function getRole(): ?Role
     {
         return $this->role;
     }
 
-    public function setRole(?role $role): self
+    public function setRole(?Role $role): self
     {
         $this->role = $role;
 
         return $this;
     }
 
-    public function getAddress(): ?address
+    public function getAddress(): ?Address
     {
         return $this->address;
     }
 
-    public function setAddress(address $address): self
+    public function setAddress(Address $address): self
     {
         $this->address = $address;
 
         return $this;
     }
 
-    public function getAuthentification(): ?twofa
+    public function getAuthentification(): ?Twofa
     {
         return $this->authentification;
     }
 
-    public function setAuthentification(?twofa $authentification): self
+    public function setAuthentification(?Twofa $authentification): self
     {
         $this->authentification = $authentification;
 
