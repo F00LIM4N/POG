@@ -1,0 +1,59 @@
+body {
+  background-color: #252525;
+}
+
+header {
+  color: aliceblue;
+}
+
+.forum__h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 130px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #dfdfdf;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
+}
+
+.forumRules {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(212, 211, 211);
+  box-sizing: border-box;
+  background: #252525;
+  border: 3px solid #000000;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  line-height: 25px;
+  width: 70%;
+  margin: auto;
+}
+.forumRules h4 {
+  text-align: center;
+}
+
+.forumRoomSearch {
+  text-align: center;
+}
+.forumRoomSearch input {
+  box-sizing: border-box;
+  width: 50%;
+  height: 50px;
+  background: #252525;
+  border: 3px solid #FF5EBE;
+  box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
+  border-radius: 20px;
+}
+.forumRoomSearch input::-moz-placeholder {
+  color: rgb(201, 201, 201);
+  font-size: 15px;
+  padding-left: 15px;
+}
+.forumRoomSearch input::placeholder {
+  color: rgb(201, 201, 201);
+  font-size: 15px;
+  padding-left: 15px;
+}

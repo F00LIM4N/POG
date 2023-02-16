@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum - POG
+{% endblock %}
+
+{% block body %}
+
+	<header>
+		Logo + nav
+	</header>
+
+	<div>
+		<h1 class="forum__h1">Forum</h1>
+
+		<div class="forumRules">
+			<h4 class="forumRules__h4">Bienvenue sur le forum de POG</h4>
+			<p>Ici, tu es libre de poser des questions à toutes la communauté POG, sur un sujet en particulier.&nbspMais avant de commancer, merci de prendre connaissance des règles suivantes :</p>
+
+			<ul>
+				<li>Avant de poster une nouvelle question,
+					<strong>vérifie que personne ne l’a posée avant toi
+					</strong>. Pour cela, tu peux utiliser la barre de recherche en dessous.
+				</li>
+				<br/>
+				<li>
+					<strong>Respect, politesse et bienveillance sont de mises
+					</strong>! Les messages à caractère raciste, homophobe, religieux ou autre ne sont pas tolérés ici.&nbspAucune insulte n’est tolérée également, ainsi que la discrimination, sous peine d’exclusion définitive de POG. Si tu voies un message de la sorte sur ce forum, tu peux signaler l’auteur(.rice) en cliquant sur le bouton “Signaler”.
+				</li>
+			</ul>
+
+			<p>Bon voyage sur le forum !</p>
+		</div>
+
+		<div class="forumRoomSearch">
+			<input type="text" placeholder="Rechercher un sujet de discussion">
+			<span><img src='../src/assets/img/chercher.png' alt='Rechercher'></span>
+		</div>
+
+
+	</div>
+{% endblock %}
