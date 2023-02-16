@@ -32,4 +32,13 @@ class Platform
 
         return $this;
     }
+    /**
+     * Transform to string
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
 }

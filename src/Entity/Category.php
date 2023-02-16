@@ -14,7 +14,7 @@ class Category
     private ?int $id = null;
 
     #[ORM\ManyToOne]
-    private ?promo $promo = null;
+    private ?Promo $promo = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name_category = null;
@@ -24,12 +24,12 @@ class Category
         return $this->id;
     }
 
-    public function getPromo(): ?promo
+    public function getPromo(): ?Promo
     {
         return $this->promo;
     }
 
-    public function setPromo(?promo $promo): self
+    public function setPromo(?Promo $promo): self
     {
         $this->promo = $promo;
 
@@ -46,5 +46,14 @@ class Category
         $this->name_category = $name_category;
 
         return $this;
+    }
+    /**
+     * Transform to string
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 }

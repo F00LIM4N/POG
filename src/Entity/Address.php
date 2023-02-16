@@ -20,8 +20,6 @@ class Address
     #[ORM\Column(length: 255)]
     private ?string $name_address = null;
 
-    #[ORM\Column]
-    private ?int $number_address = null;
 
     public function getId(): ?int
     {
@@ -52,17 +50,6 @@ class Address
         return $this;
     }
 
-    public function getNumberAddress(): ?int
-    {
-        return $this->number_address;
-    }
-
-    public function setNumberAddress(int $number_address): self
-    {
-        $this->number_address = $number_address;
-
-        return $this;
-    }
     /**
      * Transform to string
      * 

@@ -17,19 +17,19 @@ class Game
     private ?int $id = null;
 
     #[ORM\ManyToOne]
-    private ?promo $promo = null;
+    private ?Promo $promo = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?development $development = null;
+    private ?Development $development = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?edition $edition = null;
+    private ?Edition $edition = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?pegi $pegi = null;
+    private ?Pegi $pegi = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name_game = null;
@@ -49,16 +49,16 @@ class Game
     #[ORM\Column]
     private ?bool $isAvailable = null;
 
-    #[ORM\ManyToMany(targetEntity: category::class)]
+    #[ORM\ManyToMany(targetEntity: Category::class)]
     private Collection $category;
 
-    #[ORM\ManyToMany(targetEntity: mod::class)]
+    #[ORM\ManyToMany(targetEntity: Mod::class)]
     private Collection $gamemode;
 
-    #[ORM\ManyToMany(targetEntity: order::class)]
+    #[ORM\ManyToMany(targetEntity: Order::class)]
     private Collection $gameorder;
 
-    #[ORM\ManyToMany(targetEntity: platform::class)]
+    #[ORM\ManyToMany(targetEntity: Platform::class)]
     private Collection $platform;
 
     public function __construct()
@@ -68,54 +68,54 @@ class Game
         $this->gameorder = new ArrayCollection();
         $this->platform = new ArrayCollection();
     }
-    
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdPromo(): ?promo
+    public function getIdPromo(): ?Promo
     {
         return $this->promo;
     }
 
-    public function setIdPromo(?promo $promo): self
+    public function setIdPromo(?Promo $promo): self
     {
         $this->promo = $promo;
 
         return $this;
     }
 
-    public function getDevelopment(): ?development
+    public function getDevelopment(): ?Development
     {
         return $this->development;
     }
 
-    public function setDevelopment(?development $development): self
+    public function setDevelopment(?Development $development): self
     {
         $this->development = $development;
 
         return $this;
     }
 
-    public function getEdition(): ?edition
+    public function getEdition(): ?Edition
     {
         return $this->edition;
     }
 
-    public function setEdition(?edition $edition): self
+    public function setEdition(?Edition $edition): self
     {
         $this->edition = $edition;
 
         return $this;
     }
 
-    public function getPegi(): ?pegi
+    public function getPegi(): ?Pegi
     {
         return $this->pegi;
     }
 
-    public function setPegi(?pegi $pegi): self
+    public function setPegi(?Pegi $pegi): self
     {
         $this->pegi = $pegi;
 
@@ -202,7 +202,7 @@ class Game
         return $this->category;
     }
 
-    public function addCategory(category $category): self
+    public function addCategory(Category $category): self
     {
         if (!$this->category->contains($category)) {
             $this->category->add($category);
@@ -211,7 +211,7 @@ class Game
         return $this;
     }
 
-    public function removeCategory(category $category): self
+    public function removeCategory(Category $category): self
     {
         $this->category->removeElement($category);
 
@@ -226,7 +226,7 @@ class Game
         return $this->gamemode;
     }
 
-    public function addGamemode(mod $gamemode): self
+    public function addGamemode(Mod $gamemode): self
     {
         if (!$this->gamemode->contains($gamemode)) {
             $this->gamemode->add($gamemode);
@@ -235,7 +235,7 @@ class Game
         return $this;
     }
 
-    public function removeGamemode(mod $gamemode): self
+    public function removeGamemode(Mod $gamemode): self
     {
         $this->gamemode->removeElement($gamemode);
 
@@ -250,7 +250,7 @@ class Game
         return $this->gameorder;
     }
 
-    public function addGameorder(order $gameorder): self
+    public function addGameorder(Order $gameorder): self
     {
         if (!$this->gameorder->contains($gameorder)) {
             $this->gameorder->add($gameorder);
@@ -259,7 +259,7 @@ class Game
         return $this;
     }
 
-    public function removeGameorder(order $gameorder): self
+    public function removeGameorder(Order $gameorder): self
     {
         $this->gameorder->removeElement($gameorder);
 
@@ -274,7 +274,7 @@ class Game
         return $this->platform;
     }
 
-    public function addPlatform(platform $platform): self
+    public function addPlatform(Platform $platform): self
     {
         if (!$this->platform->contains($platform)) {
             $this->platform->add($platform);
@@ -283,7 +283,7 @@ class Game
         return $this;
     }
 
-    public function removePlatform(platform $platform): self
+    public function removePlatform(Platform $platform): self
     {
         $this->platform->removeElement($platform);
 

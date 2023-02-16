@@ -2,8 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Address;
+use App\Entity\Role;
+use App\Entity\Twofa;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\AddressRepository;
+use App\Repository\RoleRepository;
+use App\Repository\TwofaRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +31,12 @@ class UserController extends AbstractController
     public function new(Request $request, UserRepository $userRepository): Response
     {
         $user = new User();
+        // $role = new Role();
+        // $address = new Address();
+        // $twofa = new Twofa();
+        // $formRole = $this->createForm(RoleType::class, $role);
+        // $formAddress = $this->createForm(AddressType::class, $address);
+        // $formTwofa = $this->createForm(TwofaType::class, $twofa);
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -49,8 +61,9 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    public function edit(Request $request, User $user, UserRepository $userRepository, RoleRepository $roleRepository): Response
     {
+        $role = new Role();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -62,6 +75,7 @@ class UserController extends AbstractController
 
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
+            'role' => $roleRepository->findAll(),
             'form' => $form,
         ]);
     }
