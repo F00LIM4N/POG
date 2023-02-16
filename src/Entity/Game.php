@@ -74,12 +74,12 @@ class Game
         return $this->id;
     }
 
-    public function getIdPromo(): ?Promo
+    public function getPromo(): ?Promo
     {
         return $this->promo;
     }
 
-    public function setIdPromo(?Promo $promo): self
+    public function setPromo(?Promo $promo): self
     {
         $this->promo = $promo;
 
