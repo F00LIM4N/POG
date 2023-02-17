@@ -37,6 +37,7 @@ header {
 
 .forumRoomSearch {
   text-align: center;
+  margin-top: 100px;
 }
 .forumRoomSearch input {
   box-sizing: border-box;
@@ -46,6 +47,11 @@ header {
   border: 3px solid #FF5EBE;
   box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
   border-radius: 20px;
+  background-image: url("../src/assets/img/chercher2.png");
+  background-position: 97%;
+  background-repeat: no-repeat;
+  background-size: 2.8em;
+  transition: box-shadow 0.6s;
 }
 .forumRoomSearch input::-moz-placeholder {
   color: rgb(201, 201, 201);
@@ -56,4 +62,12 @@ header {
   color: rgb(201, 201, 201);
   font-size: 15px;
   padding-left: 15px;
+}
+.forumRoomSearch input:hover {
+  box-shadow: 0px 0px 20px rgba(255, 94, 191, 0.925);
+}
+.forumRoomSearch input:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
