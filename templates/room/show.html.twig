@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Room{% endblock %}
+
+{% block body %}
+    <h1>Room</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ room.id }}</td>
+            </tr>
+            <tr>
+                <th>Title_room</th>
+                <td>{{ room.titleRoom }}</td>
+            </tr>
+            <tr>
+                <th>Date_room</th>
+                <td>{{ room.dateRoom ? room.dateRoom|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Content_room</th>
+                <td>{{ room.contentRoom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_room_index') }}">back to list</a>
+
+    <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a>
+
+    {{ include('room/_delete_form.html.twig') }}
+{% endblock %}

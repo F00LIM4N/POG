@@ -39,7 +39,7 @@
 			<header>
 				<p>Titre</p>
 				<p>Créée le</p>
-				<p>Nombre de message</p>
+				<p class="roomCardMessage">Nombre de message</p>
 			</header>
 			<div class="roomCard">
 				<p class="roomCardTitle">oskour j'ai un problème de fou c'est dingue wesh omg ça craint g peur popoipoi</p>
@@ -51,7 +51,37 @@
 				<p class="roomCardDate">15/02/2021</p>
 				<p class="roomCardMessage">5</p>
 			</div>
+			<div class="roomCard">
+				<p class="roomCardTitle">oskour j'ai un problème de fou c'est dingue wesh omg ça craint g peur popoipoi</p>
+				<p class="roomCardDate">15/02/2021</p>
+				<p class="roomCardMessage">5</p>
+			</div>
+			<div class="roomCard">
+				<p class="roomCardTitle">oskour j'ai un problème de fou c'est dingue wesh omg ça craint g peur popoipoi</p>
+				<p class="roomCardDate">15/02/2021</p>
+				<p class="roomCardMessage">5</p>
+			</div>
+			<div class="roomCard">
+				<p class="roomCardTitle">oskour j'ai un problème de fou c'est dingue wesh omg ça craint g peur popoipoi</p>
+				<p class="roomCardDate">15/02/2021</p>
+				<p class="roomCardMessage">5</p>
+			</div>
+			<div class="roomCard">
+				<p class="roomCardTitle">oskour j'ai un problème de fou c'est dingue wesh omg ça craint g peur popoipoi</p>
+				<p class="roomCardDate">15/02/2021</p>
+				<p class="roomCardMessage">5</p>
+			</div>
 		</div>
+
+		{% for room in rooms %}
+			<tr>
+				<td>{{ room.id }}</td>
+				<td>{{ room.titleRoom }}</td>
+				<td>{{ room.dateRoom ? room.dateRoom|date('Y-m-d') : '' }}</td>
+				<td>{{ room.contentRoom }}</td>
+
+			</tr>
+		{% endfor %}
 
 		<span class="arrow">
 			<a href="#test"><img src="../src/assets/img/arrow.png"></a>
