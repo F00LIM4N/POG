@@ -33,24 +33,24 @@ class Chat
         return $this->id;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
 
-    public function getRoom(): ?room
+    public function getRoom(): ?Room
     {
         return $this->room;
     }
 
-    public function setRoom(?room $room): self
+    public function setRoom(?Room $room): self
     {
         $this->room = $room;
 

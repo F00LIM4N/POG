@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Chat;
 use App\Entity\Room;
+use App\Form\ChatType;
 use App\Form\RoomType;
 use App\Repository\ChatRepository;
 use App\Repository\RoomRepository;
@@ -43,13 +44,25 @@ class RoomController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_room_show', methods: ['GET'])]
-    public function show(Room $room, ChatRepository $chatRepository, UserRepository $userRepository): Response
+    #[Route('/{id}', name: 'app_room_show', methods: ['GET', 'POST'])]
+    public function show(Request $request, Room $room, ChatRepository $chatRepository, UserRepository $userRepository): Response
     {
-        return $this->render('room/show.html.twig', [
+
+        $chat = new Chat();
+        $form = $this->createForm(ChatType::class, $chat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $chatRepository->save($chat, true);
+
+            return $this->redirectToRoute('app_chat_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('room/show.html.twig', [
             'room' => $room,
             'chats' => $chatRepository->findAll(),
             'users' => $userRepository->findAll(),
+            'form' => $form,
         ]);
     }
 
