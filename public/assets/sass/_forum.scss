@@ -64,7 +64,7 @@ footer {
         box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
         border-radius: 20px;
         
-        background-image: url('../src/assets/img/chercher2.png');
+        background-image: url("../img/chercher2.png");
         background-position: 97%;
         background-repeat: no-repeat;
         background-size: 2.8em;
@@ -104,8 +104,7 @@ footer {
     .roomCard {
         display: grid;
         grid-template-columns: 3fr 1fr 1fr;
-        border: 3px solid #FFFF00;
-        box-shadow: 0px 0px 15px rgba(255, 252, 94, 0.5);
+        border: 3px solid;
         border-radius: 20px;
         margin-bottom: 100px;
         height: 150px;
@@ -118,8 +117,6 @@ footer {
             overflow: hidden;
             text-overflow: ellipsis;
             padding: 0px 10px 0px 13px;
-
-
         }
         .roomCardDate {
             margin-left: 0;
@@ -137,6 +134,11 @@ $colors: red, blue, orange, green, yellow, purple;
     }
 }
 
+a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .arrow {
     left: 50%;
