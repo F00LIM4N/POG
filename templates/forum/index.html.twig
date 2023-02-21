@@ -8,14 +8,11 @@
 	<header>
 		Logo + nav
 	</header>
-
 	<div>
 		<h1 class="forum__h1">Forum</h1>
-
 		<div class="forumRules">
 			<h4 class="forumRules__h4">Bienvenue sur le forum de POG</h4>
 			<p>Ici, tu es libre de poser des questions à toutes la communauté POG, sur un sujet en particulier.&nbspMais tout d'abord, merci de prendre connaissance des règles suivantes :</p>
-
 			<ul>
 				<li>Avant de poster une nouvelle question,
 					<strong>vérifie que personne ne l’a posée avant toi
@@ -27,41 +24,43 @@
 					</strong>! Les messages à caractère raciste, homophobe, religieux ou autre ne sont pas tolérés ici.&nbspAucune insulte n’est tolérée également, ainsi que la discrimination, sous peine d’exclusion définitive de POG. Si tu voies un message de la sorte sur ce forum, tu peux signaler l’auteur(.rice) en cliquant sur le bouton “Signaler”.
 				</li>
 			</ul>
-
 			<p>Bon voyage sur le forum !</p>
 		</div>
-
 		<div id="test" class="forumRoomSearch">
 			<input type="text" placeholder="Rechercher un sujet de discussion">
 		</div>
-
-
 		<div>
 			<a href="{{ path('app_room_new') }}">Créer une nouvelle discussion</a>
 		</div>
-
 		<div class="roomGrid">
 			<header>
 				<p>Titre</p>
 				<p>Créée le</p>
 				<p class="roomCardMessage">Nombre de message</p>
 			</header>
-
 			{# room et rooms de RoomController et ForumController #}
 			{% for room in rooms %}
-					<div class="roomCard">
-						<a href="{{ path('app_room_show', {id: room.id}) }}"><p class="roomCardTitle">{{ room.titleRoom }}</p></a>
-						<p class="roomCardDate">{{ room.dateRoom ? room.dateRoom|date('Y-m-d') : ''}}</p>
-						<p class="roomCardMessage">5</p>
-					</div>
+				<div class="roomCard">
+					<a href="{{ path('app_room_show', {id: room.id}) }}">
+						<p class="roomCardTitle">{{ room.titleRoom }}</p>
+					</a>
+					<p class="roomCardDate">{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : ''}}</p>
+
+					{# Compter le nombre de messages dans chaque room #}
+					{% set count = 0 %}
+					{% for chat in chats %}
+						{% if room.id == chat.room.id %}
+							{% set count = count + 1 %}
+						{% endif %}
+					{% endfor %}
+					<p class="roomCardMessage">{{count}}</p>
+				</div>
 			{% endfor %}
 		</div>
-
 		<span class="arrow">
 			<a href="#test"><img src="assets/img/arrow.png"></a>
 		</span>
 	</div>
-
 
 	<footer>
 		<p>Ici le footer</p>

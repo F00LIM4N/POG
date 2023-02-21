@@ -15,7 +15,7 @@
 				{{ room.titleRoom }}
 				</td>
 					<td>
-				{{ room.dateRoom ? room.dateRoom|date('Y-m-d') : '' }}
+				{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : '' }}
 			</td>
 			</tr>
 				<tr>
@@ -36,7 +36,7 @@
 			{% endif %}
 			{% endfor %}
 				<p>
-			{{chat.date ? chat.date|date('Y-m-d H:i:s') : '' }}
+			{{chat.date ? chat.date|date('d-m-Y H:i:s') : '' }}
 			</p>
 				<p>
 			{{chat.commentary}}
