@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Chat;
 use App\Entity\Room;
 use App\Form\RoomType;
+use App\Repository\ChatRepository;
 use App\Repository\RoomRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,10 +44,12 @@ class RoomController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_room_show', methods: ['GET'])]
-    public function show(Room $room): Response
+    public function show(Room $room, ChatRepository $chatRepository, UserRepository $userRepository): Response
     {
         return $this->render('room/show.html.twig', [
             'room' => $room,
+            'chats' => $chatRepository->findAll(),
+            'users' => $userRepository->findAll(),
         ]);
     }
 

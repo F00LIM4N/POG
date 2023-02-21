@@ -16,11 +16,11 @@ class Chat
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?room $room = null;
+    private ?Room $room = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $commentary = null;
