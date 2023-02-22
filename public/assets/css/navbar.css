@@ -1,0 +1,65 @@
+.roomCard:nth-child(6n+1) {
+  border-color: #ff6666;
+}
+
+.roomCard:nth-child(6n+2) {
+  border-color: #ffc966;
+}
+
+.roomCard:nth-child(6n+3) {
+  border-color: #ffff66;
+}
+
+.roomCard:nth-child(6n+4) {
+  border-color: #00e600;
+}
+
+.roomCard:nth-child(6n+5) {
+  border-color: #6666ff;
+}
+
+.roomCard:nth-child(6n+6) {
+  border-color: rgba(255, 102, 194, 0.9);
+}
+
+.LeoTest {
+  background-color: rgba(33, 37, 41, 0.4941176471);
+  position: absolute;
+}
+.LeoTest img {
+  width: 1900px;
+}
+
+.FirstViewBody {
+  height: 935px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.FirstViewBody .LogoTitle {
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: #212529;
+  border-radius: 25px;
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+}
+.FirstViewBody .LogoTitle h1 {
+  color: white;
+}
+.FirstViewBody nav {
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+  border-radius: 20px;
+}
+.FirstViewBody nav a {
+  cursor: pointer;
+  color: white;
+}
+
+.FirstSection {
+  width: 50%;
+}/*# sourceMappingURL=navbar.css.map */
