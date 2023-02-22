@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_widget(form.commentary)}}
+{{ form_widget(form.date, { 'value': "now"|date("Y-m-d H:m") }) }}
+
+{{ form_widget(form.user) }}
+{{ form_widget(form.room) }}
+
+<button class="btn">
+	{{ button_label|default('Envoyer') }}</button>
 {{ form_end(form) }}
+
+{{"now"|date("m-d-Y H:m") }}

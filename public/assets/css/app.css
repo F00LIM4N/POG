@@ -104,6 +104,9 @@ footer {
 .roomGrid .roomCard .roomCardDate {
   margin-left: 0;
 }
+.roomGrid .roomCard .roomCardTitle, .roomGrid .roomCard .roomCardDate, .roomGrid .roomCard .roomCardMessage {
+  margin-bottom: 0;
+}
 
 .roomCard:nth-child(6n+1) {
   border-color: #ff6666;
@@ -154,4 +157,17 @@ a:link, a:visited {
 
 .arrow:hover {
   filter: drop-shadow(0px 0px 5px rgba(255, 94, 191, 0.925));
+}
+
+.chatMessages {
+  border: 1px solid salmon;
+}
+
+td {
+  color: #fff;
+}
+
+.newMessage {
+  position: fixed;
+  bottom: 0;
 }/*# sourceMappingURL=app.css.map */

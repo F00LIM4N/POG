@@ -23,6 +23,10 @@ class Room
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content_room = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?user $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,6 +67,19 @@ class Room
 
         return $this;
     }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
     /**
      * Transform to string
      * 

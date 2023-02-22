@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Chat;
 use App\Entity\Room;
 use App\Form\ChatType;
-use App\Form\RoomType;
+use App\Form\Room2Type;
 use App\Repository\ChatRepository;
 use App\Repository\RoomRepository;
 use App\Repository\UserRepository;
@@ -29,7 +29,7 @@ class RoomController extends AbstractController
     public function new(Request $request, RoomRepository $roomRepository): Response
     {
         $room = new Room();
-        $form = $this->createForm(RoomType::class, $room);
+        $form = $this->createForm(Room2Type::class, $room);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -55,7 +55,7 @@ class RoomController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $chatRepository->save($chat, true);
 
-            return $this->redirectToRoute('app_chat_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_room_show', ['id' => $room->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('room/show.html.twig', [
@@ -69,7 +69,7 @@ class RoomController extends AbstractController
     #[Route('/{id}/edit', name: 'app_room_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Room $room, RoomRepository $roomRepository): Response
     {
-        $form = $this->createForm(RoomType::class, $room);
+        $form = $this->createForm(Room2Type::class, $room);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

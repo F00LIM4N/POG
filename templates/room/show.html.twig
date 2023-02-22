@@ -12,9 +12,18 @@
 			{# </tr> #}
 				<tr>
 					<td>
+						{% for user in users %}
+							{% if room.user.id == user.id %}
+							Discussion créée par
+						{{ user.pseudoUser }}
+					{% endif %}
+				{% endfor %}
+				</td>
+					<td>
 				{{ room.titleRoom }}
 				</td>
 					<td>
+					Le
 				{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : '' }}
 			</td>
 			</tr>
@@ -26,27 +35,33 @@
 	</tbody>
 	</table>
 
-		{% for chat in chats %}
-		{# Récupérer les commentaires et la date de la table Chat si l'id correspond #}
+
+		<div class="chatMessages"> {% for chat in chats %}
+			{# Récupérer les commentaires et la date de la table Chat si l'id correspond #}
 			{% if room.id == chat.room.id %}
-			{# Récupérer le pseudo du user #}
+				{# Récupérer le pseudo du user #}
 				{% for user in users %}
 					{% if chat.user.id == user.id %}
-				{{ user.pseudoUser }}
+						<p>
+							{{ user.pseudoUser }}
+						{% endif %}
+					{% endfor %}
+
+					{{chat.date ? chat.date|date('d-m-Y') : '' }}
+				</p>
+				<p>
+					{{chat.commentary}}
+				</p>
 			{% endif %}
-			{% endfor %}
-				<p>
-			{{chat.date ? chat.date|date('d-m-Y H:i:s') : '' }}
-			</p>
-				<p>
-			{{chat.commentary}}
-		</p>
-	{% endif %}
-	{% endfor %}
+		{% endfor %}
 
-	{{ include('chat/new.html.twig') }}
+	</div>
 
-		<a href="{{ path('app_forum') }}"> Retourner sur le forum</a>
+	<div class="newMessage">
+		{{ include('chat/new.html.twig') }}
+	</div>
+	<a href="{{ path('app_forum') }}">
+		Retourner sur le forum</a>
 
 	{# <a href="{{ path('app_room_index') }}">back to list</a> #}
 

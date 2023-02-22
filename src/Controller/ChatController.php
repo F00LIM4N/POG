@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Chat;
 use App\Form\ChatType;
 use App\Repository\ChatRepository;
+use App\Repository\RoomRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +24,7 @@ class ChatController extends AbstractController
     }
 
     #[Route('/new', name: 'app_chat_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ChatRepository $chatRepository): Response
+    public function new(Request $request, ChatRepository $chatRepository, RoomRepository $roomRepository, UserRepository $userRepository): Response
     {
         $chat = new Chat();
         $form = $this->createForm(ChatType::class, $chat);
@@ -37,6 +39,8 @@ class ChatController extends AbstractController
         return $this->renderForm('chat/new.html.twig', [
             'chat' => $chat,
             'form' => $form,
+            'rooms' => $roomRepository->findAll(),
+            'users' => $userRepository->findAll(),
         ]);
     }
 
@@ -69,7 +73,7 @@ class ChatController extends AbstractController
     #[Route('/{id}', name: 'app_chat_delete', methods: ['POST'])]
     public function delete(Request $request, Chat $chat, ChatRepository $chatRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$chat->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $chat->getId(), $request->request->get('_token'))) {
             $chatRepository->remove($chat, true);
         }
 
