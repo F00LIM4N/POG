@@ -1,0 +1,157 @@
+body {
+  background-color: #252525;
+  color: #fff;
+}
+
+footer {
+  border-top: 1px solid blue;
+}
+
+.forum__h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 130px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: 50px;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
+}
+
+.forumRules {
+  color: rgb(212, 211, 211);
+  box-sizing: border-box;
+  background: #252525;
+  border: 3px solid #000000;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  line-height: 25px;
+  width: 70%;
+  margin: auto;
+}
+.forumRules h4 {
+  text-align: center;
+}
+
+.forumRoomSearch {
+  text-align: center;
+  margin-top: 130px;
+}
+.forumRoomSearch input {
+  box-sizing: border-box;
+  width: 50%;
+  height: 50px;
+  background: #252525;
+  border: 3px solid #FF5EBE;
+  box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
+  border-radius: 20px;
+  background-image: url("../img/chercher2.png");
+  background-position: 97%;
+  background-repeat: no-repeat;
+  background-size: 2.8em;
+  transition: box-shadow 0.6s, background-color 0.6s;
+  padding-left: 15px;
+}
+.forumRoomSearch input::-moz-placeholder {
+  color: rgb(201, 201, 201);
+  font-size: 15px;
+}
+.forumRoomSearch input::placeholder {
+  color: rgb(201, 201, 201);
+  font-size: 15px;
+}
+.forumRoomSearch input:hover {
+  box-shadow: 0px 0px 20px rgba(255, 94, 191, 0.925);
+}
+.forumRoomSearch input:focus {
+  outline: none;
+  background-color: rgba(255, 94, 191, 0.4039215686);
+}
+
+.roomGrid {
+  margin-top: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.roomGrid header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  margin-left: 5px;
+}
+.roomGrid .roomCardMessage {
+  text-align: center;
+}
+.roomGrid .roomCard {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  border: 3px solid;
+  border-radius: 20px;
+  margin-bottom: 100px;
+  height: 150px;
+  align-items: center;
+  background-color: #1f1f1f;
+}
+.roomGrid .roomCard .roomCardTitle {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px 10px 0px 13px;
+}
+.roomGrid .roomCard .roomCardDate {
+  margin-left: 0;
+}
+
+.roomCard:nth-child(6n+1) {
+  border-color: #ff6666;
+  box-shadow: 0px 0px 15px #ff6666;
+}
+
+.roomCard:nth-child(6n+2) {
+  border-color: #6666ff;
+  box-shadow: 0px 0px 15px #6666ff;
+}
+
+.roomCard:nth-child(6n+3) {
+  border-color: #ffc966;
+  box-shadow: 0px 0px 15px #ffc966;
+}
+
+.roomCard:nth-child(6n+4) {
+  border-color: #00e600;
+  box-shadow: 0px 0px 15px #00e600;
+}
+
+.roomCard:nth-child(6n+5) {
+  border-color: #ffff66;
+  box-shadow: 0px 0px 15px #ffff66;
+}
+
+.roomCard:nth-child(6n+6) {
+  border-color: #e600e6;
+  box-shadow: 0px 0px 15px #e600e6;
+}
+
+a:link, a:visited {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.arrow {
+  left: 50%;
+  position: sticky;
+  bottom: 40px;
+  transition: filter 0.4s;
+}
+.arrow img {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.arrow:hover {
+  filter: drop-shadow(0px 0px 5px rgba(255, 94, 191, 0.925));
+}/*# sourceMappingURL=app.css.map */

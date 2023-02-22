@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Room
+{% endblock %}
+
+{% block body %}
+	<table class="table">
+		<tbody>
+			{# <tr> #}
+			{# <th>Id</th> #}
+			{# <td>{{ room.id }}</td> #}
+			{# </tr> #}
+				<tr>
+					<td>
+				{{ room.titleRoom }}
+				</td>
+					<td>
+				{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : '' }}
+			</td>
+			</tr>
+				<tr>
+					<td>
+				{{ room.contentRoom }}
+			</td>
+		</tr>
+	</tbody>
+	</table>
+
+		{% for chat in chats %}
+		{# Récupérer les commentaires et la date de la table Chat si l'id correspond #}
+			{% if room.id == chat.room.id %}
+			{# Récupérer le pseudo du user #}
+				{% for user in users %}
+					{% if chat.user.id == user.id %}
+				{{ user.pseudoUser }}
+			{% endif %}
+			{% endfor %}
+				<p>
+			{{chat.date ? chat.date|date('d-m-Y H:i:s') : '' }}
+			</p>
+				<p>
+			{{chat.commentary}}
+		</p>
+	{% endif %}
+	{% endfor %}
+
+	{{ include('chat/new.html.twig') }}
+
+		<a href="{{ path('app_forum') }}"> Retourner sur le forum</a>
+
+	{# <a href="{{ path('app_room_index') }}">back to list</a> #}
+
+{# <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a> #}
+
+	{# {{ include('room/_delete_form.html.twig') }} #}
+{% endblock %}
