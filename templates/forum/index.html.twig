@@ -33,11 +33,11 @@
 			<a href="{{ path('app_room_new') }}">Créer une nouvelle discussion</a>
 		</div>
 		<div class="roomGrid">
-			<header>
+			<div class="roomGridHeader">
 				<p>Titre</p>
 				<p>Créée le</p>
 				<p class="roomCardMessage">Nombre de message</p>
-			</header>
+			</div>
 			{# room et rooms de RoomController et ForumController #}
 			{% for room in rooms %}
 				<div class="roomCard">

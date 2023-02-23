@@ -1,12 +1,40 @@
-.chatMessages {
-    border: 1px solid salmon;
+.roomTitleContainer {
+    border: 3px solid #049be0;
+    box-shadow: 0px 0px 8px 8px rgba(4, 154, 241, 0.5);
+    border-radius: 20px;
+    margin: 100px 0px 100px 0px;
+    padding: 50px 50px 50px 50px;
+
+    .roomTitleContainerProfilPicture {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
 }
 
-td {
-    color: #fff;
+
+.chatContainer{
+    width: 100%;
+    position: relative;
+
+    .chatContainerProfilPicture {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .chatContainerMessage {
+        padding: 20px 20px 20px 20px;
+        border: 1px solid #000000;
+    }
 }
+
+.chatContainerMessage:nth-child(even) {background: #252525}
+.chatContainerMessage:nth-child(odd) {background: #1d1d1d}
 
 .newMessage {
     position: fixed;
     bottom: 0;
+    border: 3px solid #FF5EBE;
+    box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
+    background-color: #252525;
 }
