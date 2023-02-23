@@ -3,6 +3,10 @@ body {
   color: #fff;
 }
 
+header {
+  border-bottom: 1px solid blue;
+}
+
 footer {
   border-top: 1px solid blue;
 }
@@ -76,7 +80,7 @@ footer {
   margin-left: 100px;
   margin-right: 100px;
 }
-.roomGrid header {
+.roomGrid .roomGridHeader {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
   margin-left: 5px;
@@ -96,7 +100,6 @@ footer {
 }
 .roomGrid .roomCard .roomCardTitle {
   font-size: 20px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0px 10px 0px 13px;
@@ -142,6 +145,9 @@ a:link, a:visited {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arrow {
@@ -159,15 +165,56 @@ a:link, a:visited {
   filter: drop-shadow(0px 0px 5px rgba(255, 94, 191, 0.925));
 }
 
-.chatMessages {
-  border: 1px solid salmon;
+.roomTitleContainer {
+  border: 3px solid #049be0;
+  box-shadow: 0px 0px 8px 8px rgba(4, 154, 241, 0.5);
+  border-radius: 20px;
+  margin: 100px 0px 100px 0px;
+  padding: 50px 50px 50px 50px;
+}
+.roomTitleContainer .roomTitleContainerProfilPicture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-td {
-  color: #fff;
+.chatContainer {
+  width: 100%;
+  position: relative;
+}
+.chatContainer .chatContainerProfilPicture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.chatContainer .chatContainerMessage {
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #000000;
+}
+
+.chatContainerMessage:nth-child(even) {
+  background: #252525;
+}
+
+.chatContainerMessage:nth-child(odd) {
+  background: #1d1d1d;
 }
 
 .newMessage {
   position: fixed;
   bottom: 0;
-}/*# sourceMappingURL=app.css.map */
+  border: 3px solid #FF5EBE;
+  box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
+  background-color: #252525;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+  background-color: #1d1d1d;
+  color: #fff;
+}
+
+.chatFields {
+  display: none;
+}

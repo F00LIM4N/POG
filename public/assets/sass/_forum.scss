@@ -10,6 +10,10 @@ body {
     color: #fff;
 }
 
+header {
+    border-bottom: 1px solid blue;
+}
+
 footer {
     border-top: 1px solid blue;
 }
@@ -92,7 +96,7 @@ footer {
     margin-left: 100px;
     margin-right: 100px;
     
-    header {
+    .roomGridHeader {
         display: grid;
         grid-template-columns: 3fr 1fr 1fr;
         margin-left: 5px;
@@ -113,7 +117,6 @@ footer {
 
         .roomCardTitle {
             font-size: 20px;
-            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             padding: 0px 10px 0px 13px;
@@ -142,6 +145,9 @@ a:link, a:visited {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .arrow {
