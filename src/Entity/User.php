@@ -3,22 +3,30 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Role $role = null;
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $email = null;
+
+    #[ORM\Column]
+    private array $roles = [];
+
+    /**
+     * @var string The hashed password
+     */
+    #[ORM\Column]
+    private ?string $password = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -29,56 +37,103 @@ class User
     private ?Twofa $authentification = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $lastname_user = null;
+    private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $firstname_user = null;
+    private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $email_user = null;
+    private ?string $token = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $password_user = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $token_user = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $pseudo_user = null;
+    private ?string $pseudo = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateBirth_user = null;
+    private ?\DateTimeInterface $dateBirth = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description_user = null;
+    private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $picture_user = null;
+    private ?string $picture = null;
 
     #[ORM\Column]
     private ?bool $isMailValid = null;
 
     #[ORM\Column(length: 20, nullable: true)]
-    private ?string $phone_user = null;
+    private ?string $phone = null;
 
     #[ORM\Column]
-    private ?bool $secu_enabled_user = null;
+    private ?bool $secuEnabled = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getRole(): ?Role
+    public function getEmail(): ?string
     {
-        return $this->role;
+        return $this->email;
     }
 
-    public function setRole(?Role $role): self
+    public function setEmail(string $email): self
     {
-        $this->role = $role;
+        $this->email = $email;
 
         return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     public function getAddress(): ?Address
@@ -105,110 +160,86 @@ class User
         return $this;
     }
 
-    public function getLastnameUser(): ?string
+    public function getLastname(): ?string
     {
-        return $this->lastname_user;
+        return $this->lastname;
     }
 
-    public function setLastnameUser(string $lastname_user): self
+    public function setLastname(string $lastname): self
     {
-        $this->lastname_user = $lastname_user;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
-    public function getFirstnameUser(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->firstname_user;
+        return $this->firstname;
     }
 
-    public function setFirstnameUser(string $firstname_user): self
+    public function setFirstname(string $firstname): self
     {
-        $this->firstname_user = $firstname_user;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getEmailUser(): ?string
+    public function getToken(): ?string
     {
-        return $this->email_user;
+        return $this->token;
     }
 
-    public function setEmailUser(string $email_user): self
+    public function setToken(string $token): self
     {
-        $this->email_user = $email_user;
+        $this->token = $token;
 
         return $this;
     }
 
-    public function getPasswordUser(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->password_user;
+        return $this->pseudo;
     }
 
-    public function setPasswordUser(string $password_user): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->password_user = $password_user;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
 
-    public function getTokenUser(): ?string
+    public function getDateBirth(): ?\DateTimeInterface
     {
-        return $this->token_user;
+        return $this->dateBirth;
     }
 
-    public function setTokenUser(string $token_user): self
+    public function setDateBirth(\DateTimeInterface $dateBirth): self
     {
-        $this->token_user = $token_user;
+        $this->dateBirth = $dateBirth;
 
         return $this;
     }
 
-    public function getPseudoUser(): ?string
+    public function getDescription(): ?string
     {
-        return $this->pseudo_user;
+        return $this->description;
     }
 
-    public function setPseudoUser(string $pseudo_user): self
+    public function setDescription(?string $description): self
     {
-        $this->pseudo_user = $pseudo_user;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getDateBirthUser(): ?\DateTimeInterface
+    public function getPicture(): ?string
     {
-        return $this->dateBirth_user;
+        return $this->picture;
     }
 
-    public function setDateBirthUser(\DateTimeInterface $dateBirth_user): self
+    public function setPicture(?string $picture): self
     {
-        $this->dateBirth_user = $dateBirth_user;
-
-        return $this;
-    }
-
-    public function getDescriptionUser(): ?string
-    {
-        return $this->description_user;
-    }
-
-    public function setDescriptionUser(?string $description_user): self
-    {
-        $this->description_user = $description_user;
-
-        return $this;
-    }
-
-    public function getPictureUser(): ?string
-    {
-        return $this->picture_user;
-    }
-
-    public function setPictureUser(?string $picture_user): self
-    {
-        $this->picture_user = $picture_user;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -225,26 +256,26 @@ class User
         return $this;
     }
 
-    public function getPhoneUser(): ?string
+    public function getPhone(): ?string
     {
-        return $this->phone_user;
+        return $this->phone;
     }
 
-    public function setPhoneUser(?string $phone_user): self
+    public function setPhone(?string $phone): self
     {
-        $this->phone_user = $phone_user;
+        $this->phone = $phone;
 
         return $this;
     }
 
-    public function isSecuEnabledUser(): ?bool
+    public function isSecuEnabled(): ?bool
     {
-        return $this->secu_enabled_user;
+        return $this->secuEnabled;
     }
 
-    public function setSecuEnabledUser(bool $secu_enabled_user): self
+    public function setSecuEnabled(bool $secuEnabled): self
     {
-        $this->secu_enabled_user = $secu_enabled_user;
+        $this->secuEnabled = $secuEnabled;
 
         return $this;
     }

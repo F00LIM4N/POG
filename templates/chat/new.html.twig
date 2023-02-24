@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Chat
+{% endblock %}
+
+{% block body %}
+	<h4>Nouveau message</h4>
+	{{ form_start(form) }}
+
+	{{ form_widget(form.commentary)}}
+
+	{{ form_widget(form.date, { 'value': "now"|date("Y-m-d H:i"), 'attr': {'class': 'chatFields'} }) }}
+
+	{{ form_widget(form.user) }}
+
+
+	{{ form_widget(form.room) }}
+
+	<button class="btn">
+		{{ button_label|default('Envoyer') }}</button>
+	{{ form_end(form) }}
+
+
+	{# {{ include('chat/_form.html.twig') }} #}
+
+{% endblock %}
