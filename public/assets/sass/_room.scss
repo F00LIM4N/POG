@@ -16,6 +16,7 @@
 .chatContainer{
     width: 100%;
     position: relative;
+    margin-bottom: 300px;
 
     .chatContainerProfilPicture {
         width: 50px;
@@ -34,7 +35,7 @@
 .newMessage {
     position: fixed;
     bottom: 0;
-    border: 3px solid #FF5EBE;
+    border: 2px solid #FF5EBE;
     box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
     background-color: #252525;
 }
