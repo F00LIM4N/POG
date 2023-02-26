@@ -27,5 +27,10 @@
 			<p>Jonasssss</p>
 			<p>LOUISON ^^</p>
 		</ul>
+
+		{% if app.user %}
+			bonjour
+			{{app.user.pseudo}}
+		{% endif %}
 	</div>
 {% endblock %}

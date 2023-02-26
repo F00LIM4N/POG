@@ -4,11 +4,6 @@
 {% endblock %}
 
 {% block body %}
-
-	<header>
-		Logo + nav
-	</header>
-
 	<div class="container">
 		<div class="roomTitleContainer">
 			{# Id #}
@@ -16,7 +11,7 @@
 
 				{% for user in users %}
 					{% if room.user.id == user.id %}
-					<img class="roomTitleContainerProfilPicture" src="{{ user.pictureUser }}" alt="Photo de profil"> {{ user.pseudoUser }}
+					<img class="roomTitleContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil"> {{ user.pseudo }}
 				{% endif %}
 			{% endfor %}
 			le
@@ -41,11 +36,11 @@
 						{% for user in users %}
 							{% if chat.user.id == user.id %}
 								<p>
-									<img class="chatContainerProfilPicture" src="{{ user.pictureUser }}" alt="Photo de profil">
-									{{ user.pseudoUser }}
+									<img class="chatContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">
+									{{ user.pseudo }}
 								{% endif %}
 							{% endfor %}
-							{{chat.date ? chat.date|date('d-m-Y : H:i') : '' }}
+							{{chat.date|date('d-m-Y : H:i')}}
 						</p>
 						<p>
 							{{chat.commentary}}
