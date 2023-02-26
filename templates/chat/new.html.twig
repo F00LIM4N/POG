@@ -9,10 +9,17 @@
 
 	{{ form_widget(form.commentary)}}
 
-	{{ form_widget(form.date, { 'value': "now"|date("Y-m-d H:i"), 'attr': {'class': 'chatFields'} }) }}
+	{{ form_widget(form.date, { 'value': "now"|date("Y-m-d H:i") }) }}
 
-	{{ form_widget(form.user) }}
 
+	{# Récupérer l'id du user connecté#}
+	{% if app.user %}
+		{{ form_row(form.user, {
+        'attr': {
+            'value': app.user.id,
+        },
+    }) }}
+	{% endif %}
 
 	{{ form_widget(form.room) }}
 

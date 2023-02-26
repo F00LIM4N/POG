@@ -50,11 +50,13 @@
 			{% endfor %}
 		</div>
 
-		<div class="container newMessage">
-			{{ include('chat/new.html.twig') }}
-
-		</div>
-
+		{% if app.user %}
+			<div class="container newMessage">
+				{{ include('chat/new.html.twig') }}
+			</div>
+		{% else %}
+			<p>Vous devez être connecté(e) pour envoyer un message...</p>
+		{% endif %}
 		{# <a href="{{ path('app_room_index') }}">back to list</a> #}
 	{# <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a> #}
 		{# {{ include('room/_delete_form.html.twig') }} #}
