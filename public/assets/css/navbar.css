@@ -1,25 +1,5 @@
-.roomCard:nth-child(6n+1) {
-  border-color: #ff6666;
-}
-
-.roomCard:nth-child(6n+2) {
-  border-color: #ffc966;
-}
-
-.roomCard:nth-child(6n+3) {
-  border-color: #ffff66;
-}
-
-.roomCard:nth-child(6n+4) {
-  border-color: #00e600;
-}
-
-.roomCard:nth-child(6n+5) {
-  border-color: #6666ff;
-}
-
-.roomCard:nth-child(6n+6) {
-  border-color: rgba(255, 102, 194, 0.9);
+body {
+  background-color: #212529;
 }
 
 .LeoTest {
@@ -60,6 +40,35 @@
   color: white;
 }
 
-.FirstSection {
-  width: 50%;
+.marginForCarousel {
+  margin: 200px;
+}
+
+.carouselBorders {
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+  border-radius: 50px;
+}
+
+.InfoGameFont {
+  border-radius: 50px;
+  background-color: #212529;
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+}
+
+.categoryDiv {
+  width: 300px;
+  height: 150px;
+  background-color: #212529;
+  border-radius: 25px;
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+.categoryDiv h3 {
+  color: white;
+}
+
+.categoryDiv:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
 }/*# sourceMappingURL=navbar.css.map */

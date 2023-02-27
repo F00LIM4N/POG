@@ -1,9 +1,13 @@
-$colors: red, orange, yellow, green, blue, rgba(255,0,153,0.9);
+// $colors: red, orange, yellow, green, blue, rgba(255,0,153,0.9);
 
-@for $i from 1 through length($colors) {
-    .roomCard:nth-child(#{length($colors)}n+#{$i}) {
-        border-color: lighten(nth($colors, $i), 20%);
-    }
+// @for $i from 1 through length($colors) {
+//     .navColors:nth-child(#{length($colors)}n+#{$i}) {
+//         border-color: lighten(nth($colors, $i), 20%);
+//     }
+// }
+
+body{
+    background-color: #212529;
 }
 
 .LeoTest{
@@ -48,6 +52,43 @@ $colors: red, orange, yellow, green, blue, rgba(255,0,153,0.9);
     }
 }
 
-.FirstSection{
-    width: 50%;
+.marginForCarousel{
+    margin: 200px;
+}
+
+.carouselBorders{
+    -webkit-box-shadow:0px 0px 20px 10px rgba(255,0,153,0.9);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+    box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+    border-radius: 50px;
+}
+
+.InfoGameFont{
+    border-radius: 50px;
+    background-color: #212529;
+    -webkit-box-shadow:0px 0px 20px 10px rgba(255,0,153,0.9);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+    box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+}
+
+.categoryDiv{
+    width: 300px;
+    height: 150px;
+    background-color: #212529;
+    border-radius: 25px;
+    -webkit-box-shadow:0px 0px 20px 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.9);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    h3{
+        color: white;
+    }
+}
+
+.categoryDiv:hover{
+    transform: scale(1.1);
+    -webkit-box-shadow:0px 0px 20px 10px rgba(255,0,153,0.9);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+    box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
 }
