@@ -1,5 +1,4 @@
 .LeoTest {
-  background-color: rgba(33, 37, 41, 0.4941176471);
   position: absolute;
 }
 .LeoTest img {
@@ -67,4 +66,18 @@
 .categoryDiv:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
-}/*# sourceMappingURL=navbar.css.map */
+}
+
+.homeGameDescr {
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+  border-radius: 25px;
+  margin: 20px;
+  width: 50%;
+  height: 350px;
+}
+.homeGameDescr img {
+  box-shadow: 0px 0px 20px 10px rgba(255, 0, 153, 0.9);
+  position: relative;
+  right: 100px;
+  border-radius: 25px;
+}/*# sourceMappingURL=home.css.map */

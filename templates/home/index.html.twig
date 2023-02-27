@@ -36,17 +36,19 @@
 		</div>
 	</div>
 
-	<div class="d-flex align-items-center justify-content-center m-5 gameSelectedDescr">
-		{% for game in games|slice(0, 1) %}
-			<img src="{{ game.PictureGame }}" alt="">
-		<div class="d-flex flex-column align-items-center m-5 homeGameDescr">
-			<h3>Nom: {{ game.NameGame }} (Pegi {{ game.Pegi.ValuePegi }})</h3>
-			<h5>Date de sortie: {{ game.ReleaseDateGame|date('d-m-Y') }}</h5>
-			<h5>Developement: {{ game.Development.NameDevelopment }}</h5>
-			<h5>Edition: {{ game.Edition.NameEdition }}</h5>
-			<h5>Prix: {{ game.PriceGame }}€</h5>
+	<div class="d-flex justify-content-center">
+		<div class="d-flex align-items-center m-5 homeGameDescr">
+			{% for game in games|slice(0, 1) %}
+				<img src="{{ game.PictureGame }}" alt="">
+			<div class="d-flex flex-column align-items-center m-5">
+				<h3 class="m-3">Nom: {{ game.NameGame }} (Pegi {{ game.Pegi.ValuePegi }})</h3>
+				<h5 class="m-3">Date de sortie: {{ game.ReleaseDateGame|date('d-m-Y') }}</h5>
+				<h5 class="m-3">Developement: {{ game.Development.NameDevelopment }}</h5>
+				<h5 class="m-3">Edition: {{ game.Edition.NameEdition }}</h5>
+				<h5 class="m-3">Prix: {{ game.PriceGame }}€</h5>
+			</div>
+			{% endfor %}
 		</div>
-		{% endfor %}
 	</div>
 
 {% endblock %}
