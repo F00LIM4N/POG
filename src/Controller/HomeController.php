@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\CategoryRepository;
+use App\Repository\DevelopmentRepository;
+use App\Repository\EditionRepository;
 use App\Repository\GameRepository;
+use App\Repository\PegiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

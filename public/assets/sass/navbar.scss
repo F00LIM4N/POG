@@ -5,13 +5,6 @@
 //         border-color: lighten(nth($colors, $i), 20%);
 //     }
 // }
-
-@for $i from 1 through length($colors) {
-    .roomCard:nth-child(#{length($colors)}n+#{$i}) {
-        border-color: lighten(nth($colors, $i), 20%);
-    }
-}
-
 .LeoTest{
     background-color: #2125297e;
     position: absolute;

@@ -2,7 +2,7 @@
     {{ dump(categories) }}
 </pre> #}
 <div class="d-flex justify-content-evenly flex-wrap m-5">
-    {% for category in categories %}
+    {% for category in categories|slice(0, 6) %}
         <div class="d-flex justify-content-center align-items-center categoryDiv">
             <h3>{{ category.NameCategory }}</h3>
         </div>
