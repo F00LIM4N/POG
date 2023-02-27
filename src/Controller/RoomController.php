@@ -32,6 +32,15 @@ class RoomController extends AbstractController
         $form = $this->createForm(Room2Type::class, $room);
         $form->handleRequest($request);
 
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser();
+
+        // Récupérer l'ID de l'utilisateur
+        $userId = $user->getId();
+
+        // Utiliser l'ID de l'utilisateur comme bon vous semble
+        // ...
+
         if ($form->isSubmitted() && $form->isValid()) {
             $roomRepository->save($room, true);
 
@@ -41,6 +50,7 @@ class RoomController extends AbstractController
         return $this->renderForm('room/new.html.twig', [
             'room' => $room,
             'form' => $form,
+            'user_id' => $userId,
         ]);
     }
 

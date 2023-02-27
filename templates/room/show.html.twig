@@ -5,10 +5,9 @@
 
 {% block body %}
 	<div class="container">
+	
+		<a href="{{ path('app_forum') }}"><button class="room__button__returnForum" style="vertical-align:middle"><span>Retourner sur le forum </span></button></a>
 		<div class="roomTitleContainer">
-			{# Id #}
-			{# {{ room.id }} #}
-
 				{% for user in users %}
 					{% if room.user.id == user.id %}
 					<img class="roomTitleContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil"> {{ user.pseudo }}
@@ -24,8 +23,6 @@
 			</p>
 		</div>
 
-		<a href="{{ path('app_forum') }}">
-			Retourner sur le forum</a>
 
 		<div class="chatContainer">
 			{% for chat in chats %}
@@ -55,7 +52,7 @@
 				{{ include('chat/new.html.twig') }}
 			</div>
 		{% else %}
-			<p>Vous devez être connecté(e) pour envoyer un message...</p>
+			<p class="room__ifNotConnected">Vous devez être connecté(e) pour envoyer un message...</p>
 		{% endif %}
 		{# <a href="{{ path('app_room_index') }}">back to list</a> #}
 	{# <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a> #}
