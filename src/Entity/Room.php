@@ -25,7 +25,7 @@ class Room
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -64,18 +64,6 @@ class Room
     public function setContentRoom(string $content_room): self
     {
         $this->content_room = $content_room;
-
-        return $this;
-    }
-
-    public function getUser(): ?user
-    {
-        return $this->user;
-    }
-
-    public function setUser(?user $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

@@ -6,8 +6,10 @@
 //     }
 // }
 
-body{
-    background-color: #212529;
+@for $i from 1 through length($colors) {
+    .roomCard:nth-child(#{length($colors)}n+#{$i}) {
+        border-color: lighten(nth($colors, $i), 20%);
+    }
 }
 
 .LeoTest{
