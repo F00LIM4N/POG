@@ -41,9 +41,10 @@ See https://symfony.com/doc/current/security/remember_me.html
 			<button class="login__button__submit btn btn-lg btn-primary mt-5" type="submit">
 				Se connecter
 			</button>
-			<button class="login__button__submit btn btn-lg btn-primary mt-5" type="submit">
-				Mot de passe oublié ?
-			</button>
-		</form>
+
+			<div class="login__passforgot mt-5">
+			<a href="{{ path('app_forgot_password_request')}}" >Mot de passe oublié ?<a>
+			<div>
+			
 	</div>
 {% endblock %}

@@ -1,0 +1,23 @@
+.request__h1 {
+    font-size: 50px;
+    line-height: 130px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 50px;
+
+    color: #fff;
+    text-shadow:  0 0 0px #fff, 
+        0 0 3px #fff, 
+        0 0 1px rgb(230 18 124), 
+        0 0 30px rgb(230 18 124), 
+        0 0 100px rgb(230 18 124);
+}
+
+.request__button__submit {
+    margin: auto;
+    display: flex;
+}
+
+.check_email {
+    text-align: center;
+}
