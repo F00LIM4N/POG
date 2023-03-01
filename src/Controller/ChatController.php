@@ -24,10 +24,24 @@ class ChatController extends AbstractController
     }
 
     #[Route('/new', name: 'app_chat_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ChatRepository $chatRepository, RoomRepository $roomRepository, UserRepository $userRepository): Response
+    public function new(Request $request, ChatRepository $chatRepository, RoomRepository $roomRepository, UserRepository $userRepository, $id): Response
     {
         $chat = new Chat();
-        $form = $this->createForm(ChatType::class, $chat);
+
+        // Récupérer la Room sélectionnée par l'utilisateur
+        $room = $this->getDoctrine()->getRepository(Room::class)->find($id);
+        // Renseigner l'ID de la Room dans le formulaire de Chat
+        $chat->setRoom($room);
+        //Récupérer l'ID du user connecté
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $user = $userRepository->find($userId);
+
+        $form = $this->createForm(ChatType::class, $chat, [
+            'user' => $user,
+            'action' => $this->generateUrl('chat_create', ['roomId' => $id]),
+            'method' => 'POST',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
