@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1 class="register__h1">Inscription</h1>
+
+				{{ form_start(registrationForm) }}
+
+				<fieldset class="mt-5">
+					<legend class="register__legend">Mon identité</legend>
+					{{ form_row(registrationForm.lastname) }}
+					{{ form_row(registrationForm.firstname) }}
+					{{ form_row(registrationForm.pseudo) }}
+					{{ form_row(registrationForm.date_birth) }}
+					{{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
+					<br>
+					{{ form_row(registrationForm.authentification) }}
+				</fieldset>
+
+				<fieldset class="mt-5">
+					<legend class="register__legend">Mes coordonnées</legend>
+					{{ form_row(registrationForm.phone) }}
+					{{ form_row(registrationForm.address) }}
+					{{ form_row(registrationForm.email) }}
+				</fieldset>
+				<br>
+				{{ form_row(registrationForm.agreeTerms) }}
+				<button type="submit" class="register__button__submit btn btn-lg btn-primary mt-3">Envoyer</button>
+				{{ form_end(registrationForm) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

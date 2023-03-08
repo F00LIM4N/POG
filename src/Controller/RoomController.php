@@ -26,11 +26,21 @@ class RoomController extends AbstractController
     }
 
     #[Route('/new', name: 'app_room_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, RoomRepository $roomRepository): Response
+    public function new(Request $request, RoomRepository $roomRepository, UserRepository $userRepository): Response
     {
         $room = new Room();
-        $form = $this->createForm(Room2Type::class, $room);
+
+        //Récupérer l'ID du user connecté
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $user = $userRepository->find($userId);
+
+        // Créer le formulaire en passant l'identifiant de l'utilisateur
+        $form = $this->createForm(Room2Type::class, $room, [
+            'user' => $user
+        ]);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $roomRepository->save($room, true);

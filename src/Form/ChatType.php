@@ -23,9 +23,7 @@ class ChatType extends AbstractType
                 'data' => new \DateTime()
             ))
             ->add('user')
-            ->add(
-                'room'
-            );
+            ->add('room');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

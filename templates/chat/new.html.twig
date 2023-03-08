@@ -9,15 +9,19 @@
 
 	{{ form_widget(form.commentary)}}
 
-	{{ form_widget(form.date, { 'value': "now"|date("Y-m-d H:i"), 'attr': {'class': 'chatFields'} }) }}
-
-	{{ form_widget(form.user) }}
+	{{ form_widget(form.date) }}
 
 
-	{{ form_widget(form.room) }}
+	{# Récupérer l'id du user connecté#}
 
-	<button class="btn">
-		{{ button_label|default('Envoyer') }}</button>
+	{{ form_row(form.user, {'data': app.user.id}) }}
+	<input value={{ app.user.id }}>
+
+	{{ form_row(form.room, {'data': room.id}) }}
+	<input name="chat[room]" value="{{ room.id }}">
+
+	<button class="btn">{{ button_label|default('Envoyer') }}</button>
+
 	{{ form_end(form) }}
 
 

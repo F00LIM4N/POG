@@ -4,10 +4,6 @@
 {% endblock %}
 
 {% block body %}
-
-	<header>
-		Logo + nav
-	</header>
 	<div>
 		<h1 class="forum__h1">Forum</h1>
 		<div class="forumRules">
@@ -28,9 +24,6 @@
 		</div>
 		<div id="test" class="forumRoomSearch">
 			<input type="text" placeholder="Rechercher un sujet de discussion">
-		</div>
-		<div>
-			<a href="{{ path('app_room_new') }}">Créer une nouvelle discussion</a>
 		</div>
 		<div class="roomGrid">
 			<div class="roomGridHeader">
@@ -57,12 +50,18 @@
 				</div>
 			{% endfor %}
 		</div>
+		<div class="newRoomContainer">
+			Tu ne trouves pas la discussion correspondant à ta recherche ?<br>
+			Clique
+			{% if app.user %}
+				<a href="{{ path('app_room_new') }}" class="newRoomButton">ici</a>
+			{% else %}
+				<a href="{{ path('app_login') }}" class="newRoomButton">ici</a>
+			{% endif %}
+			pour en créer une :
+		</div>
 		<span class="arrow">
 			<a href="#test"><img src="assets/img/arrow.png"></a>
 		</span>
 	</div>
-
-	<footer>
-		<p>Ici le footer</p>
-	</footer>
 {% endblock %}

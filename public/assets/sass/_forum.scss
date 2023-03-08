@@ -10,14 +10,6 @@ body {
     color: #fff;
 }
 
-header {
-    border-bottom: 1px solid blue;
-}
-
-footer {
-    border-top: 1px solid blue;
-}
-
 .forum__h1 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: italic;
@@ -44,12 +36,14 @@ footer {
     box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     padding: 20px;
-    line-height: 25px;
+    line-height: 30px;
     width: 70%;
     margin: auto;
+    font-size: 20px;
     
     h4 {
         text-align: center;
+        line-height: 60px;
     }
 }
 
@@ -132,7 +126,7 @@ footer {
     }
 }
 
-$colors: red, blue, orange, green, yellow, purple;
+$colors: red, blue, rgb(255, 136, 0), green, yellow, purple;
 
 @for $i from 1 through length($colors) {
     .roomCard:nth-child(#{length($colors)}n+#{$i}) {
@@ -164,3 +158,27 @@ a:link, a:visited {
     filter: drop-shadow(0px 0px 5px rgba(255, 94, 191, 0.925));
 
 }
+
+.newRoomContainer {
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.newRoomButton {
+    transition-duration: 0.4s;
+    margin: 0px 5px 0px 5px;
+    padding: 0px 15px 0px 15px;
+    border: 2px solid #000000;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+.newRoomButton:hover {
+    background-color: #008cff;
+    filter: drop-shadow(0px 0px 3px #008cff);
+    border: 2px solid #008cff;
+}
+
