@@ -51,4 +51,13 @@
 		</div>
 	</div>
 
+	<div class="games">
+		{% block gamesDisplay %}
+			{% include 'home/gamesDisplay.html.twig' %}
+		{% endblock %}
+		<div class="text-center">
+			<a href="#">Afficher plus ...</a>
+		</div>
+	</div>
+
 {% endblock %}

@@ -1,10 +1,12 @@
 {# <pre>
     {{ dump(categories) }}
 </pre> #}
-<div class="d-flex justify-content-evenly flex-wrap m-5">
-    {% for category in categories|slice(0, 6) %}
-        <div class="d-flex justify-content-center align-items-center categoryDiv">
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row row-cols-3">
+    {% for category in categories|slice(0, 9) %}
+        <div class="col d-flex justify-content-center align-items-center text-center m-5 categoryDiv">
             <h3>{{ category.NameCategory }}</h3>
         </div>
     {% endfor %}
+    </div>
 </div>
