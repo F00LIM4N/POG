@@ -3,7 +3,8 @@
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: 100;
     transition: all 0.5s;
     cursor: pointer;
     margin-top: 50px;
@@ -35,43 +36,139 @@
     box-shadow: 0px 0px 8px 8px rgba(4, 154, 241, 0.5);
     border-radius: 20px;
     margin: 30px 0px 100px 0px;
-    padding: 50px 50px 50px 50px;
+    padding: 30px 50px 50px 50px;
 
     .roomTitleContainerProfilPicture {
         width: 50px;
         height: 50px;
         border-radius: 50%;
+        margin-right: 10px;
+    }
+    .roomTitleContainer__header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+    }
+    .roomTitleContainer__header__profil{
+      font-size: 25px;
+    }
+    .roomTitleContainer__title{
+      text-align: center;
+      margin-bottom: 20px;
     }
 }
 
 
 .chatContainer{
-    width: 100%;
-    position: relative;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 
     .chatContainerProfilPicture {
         width: 50px;
         height: 50px;
         border-radius: 50%;
+        margin-right: 10px;
     }
     .chatContainerMessage {
         padding: 20px 20px 20px 20px;
         border: 1px solid #000000;
+      }
+      .chatContainerMessage__header{
+      justify-content: space-between;
+      display: flex;
     }
+    .chatContainerMessage__header__profil{
+      font-size: 20px;
+    }
+    
 }
 
 .chatContainerMessage:nth-child(even) {background: #252525}
-.chatContainerMessage:nth-child(odd) {background: #1d1d1d}
+.chatContainerMessage:nth-child(odd) {background: #141414}
 
 .newMessage {
     position: fixed;
-    bottom: 0;
+    bottom: 25px;
     border: 2px solid #FF5EBE;
     box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
-    background-color: #252525;
+    background-color: #1d1d1d;
+    color: rgb(175, 175, 175);
 }
 
 .room__ifNotConnected {
     text-align: center;
+    margin: -200px 0 100px 0;
+}
+
+.room__btnnewmessage{
+  margin-bottom: 10px;
+}
+
+.room__chatContainer__date {
+  text-align: end;
+}
+
+.room__chatContainer__profil {
+  margin-bottom: 0;
+}
+
+//*****************************************************************
+//********************** New Room *********************************
+//*****************************************************************
+
+.newRoom__h1 {
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 130px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: 50px;
+
+  color: #fff;
+  text-shadow:  0 0 2px #fff, 
+      0 0 10px #fff, 
+      0 0 42px rgb(230, 18, 124),   
+      0 0 77px rgb(230, 18, 124), 
+      0 0 100px rgb(230, 18, 124) 
+}
+
+.newRoom__submit {
+  margin-top: 30px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.newRoom__title {
+  width: 60%;
+  margin-left: 20%;
+  color: #fff;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  height: 40px;
+  padding-left: 10px;
+}
+.newRoom__title {
+  display: flex;
+  justify-content: center;
+  background-color: #141414;
+}
+
+.newRoom__title:focus {
+  background-color: #141414;
+  outline: none;
+  color: #fff;
+}
+
+.newRoom__title::placeholder {
+  color:#a8a6a6;
+}
+
+.newRoom__content {
+  background-color:#1d1d1d;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  color: #fff;
+  padding: 10px;
 }

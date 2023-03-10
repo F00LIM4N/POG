@@ -17,7 +17,7 @@
 					{{ form_row(registrationForm.firstname) }}
 					{{ form_row(registrationForm.pseudo) }}
 					{{ form_row(registrationForm.date_birth) }}
-					{{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
+					{{ form_row(registrationForm.plainPassword) }}
 					<br>
 					{{ form_row(registrationForm.authentification) }}
 				</fieldset>
@@ -30,7 +30,7 @@
 				</fieldset>
 				<br>
 				{{ form_row(registrationForm.agreeTerms) }}
-				<button type="submit" class="register__button__submit btn btn-lg btn-primary mt-3">Envoyer</button>
+				<button type="submit" class="register__button__submit btn btn-lg btn-primary mt-5 mb-5">Envoyer</button>
 				{{ form_end(registrationForm) }}
 			</div>
 		</div>

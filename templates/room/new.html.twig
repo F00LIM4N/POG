@@ -5,10 +5,15 @@
 
 {% block body %}
 	<div class="container">
-		<h1>Créer une nouvelle discussion</h1>
+		<a href="{{ path('app_forum') }}"><button class="room__button__returnForum" style="vertical-align:middle"><span>RETOURNER SUR LE FORUM </span></button></a>
+		<h1 class="newRoom__h1">Créer une nouvelle discussion</h1>
+		{{ form_start(form) }}
+			{{ form_widget(form.user) }}
+			{{ form_widget(form.title_room, {'attr' : {'class': 'newRoom__title', 'placeholder' : 'Tapez le titre de la dicussion ici ...'} }) }}
 
-		{{ include('room/_form.html.twig') }}
-
-		<a href="{{ path('app_room_index') }}">back to list</a>
+			{{ form_widget(form.content_room, {'attr' : {'class': 'newRoom__content', 'placeholder' : 'Tapez ici le sujet de la discussion ...'} }) }}
+			<button class="btn btn-outline-light btn-lg mx-auto newRoom__submit">{{ button_label|default('Créer') }}</button>
+		{{ form_end(form) }}
+		{# <a href="{{ path('app_room_index') }}">back to list</a> #}
 	</div>
 {% endblock %}

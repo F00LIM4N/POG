@@ -4,25 +4,20 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-	
+	<div id="arrow" class="container">
 		<a href="{{ path('app_forum') }}"><button class="room__button__returnForum" style="vertical-align:middle"><span>Retourner sur le forum </span></button></a>
 		<div class="roomTitleContainer">
-				{% for user in users %}
-					{% if room.user.id == user.id %}
-					<img class="roomTitleContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil"> {{ user.pseudo }}
+			<div class="roomTitleContainer__header">
+			{% for user in users %}
+				{% if room.user.id == user.id %}
+				<p class="roomTitleContainer__header__profil"><img class="roomTitleContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
 				{% endif %}
 			{% endfor %}
-			le
 			{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : '' }}
-
-			{{ room.titleRoom }}
-
-			<p>
-				{{ room.contentRoom }}
-			</p>
+			</div>
+			<h4 class="roomTitleContainer__title">{{ room.titleRoom }}</h4>
+			<p>{{ room.contentRoom }}</p>
 		</div>
-
 
 		<div class="chatContainer">
 			{% for chat in chats %}
@@ -30,18 +25,15 @@
 				{% if room.id == chat.room.id %}
 					{# Récupérer le pseudo du user #}
 					<div class="chatContainerMessage">
-						{% for user in users %}
-							{% if chat.user.id == user.id %}
-								<p>
-									<img class="chatContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">
-									{{ user.pseudo }}
+						<div class="chatContainerMessage__header">
+							{% for user in users %}
+								{% if chat.user.id == user.id %}
+								<p class="chatContainerMessage__header__profil"><img class="chatContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
 								{% endif %}
 							{% endfor %}
-							{{chat.date|date('d-m-Y : H:i')}}
-						</p>
-						<p>
-							{{chat.commentary}}
-						</p>
+							{{chat.date|date('d-m-Y | H:i')}}
+						</div>
+						<p>{{chat.commentary}}</p>
 					</div>
 				{% endif %}
 			{% endfor %}
@@ -52,10 +44,10 @@
 				{{ include('chat/new.html.twig') }}
 			</div>
 		{% else %}
-			<p class="room__ifNotConnected">Vous devez être connecté(e) pour envoyer un message...</p>
+			<p class="room__ifNotConnected">Vous devez être connecté(e) pour envoyer un message ...</p>
 		{% endif %}
 		{# <a href="{{ path('app_room_index') }}">back to list</a> #}
-	{# <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a> #}
+		{# <a href="{{ path('app_room_edit', {'id': room.id}) }}">edit</a> #}
 		{# {{ include('room/_delete_form.html.twig') }} #}
 	</div>
 {% endblock %}

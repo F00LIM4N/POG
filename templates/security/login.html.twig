@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<form method="post">
+	<form method="post" class="m-auto">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
@@ -18,7 +18,7 @@
 		{% endif %}
 
 		<div class="container">
-			<h1 class="login__h1 h3 mb-3 font-weight-normal">Connectez-vous</h1>
+			<h1 class="login__h1 h3 font-weight-normal">Connectez-vous</h1>
 			<label for="inputEmail">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 			<label class="mt-3" for="inputPassword">Mot de passe</label>

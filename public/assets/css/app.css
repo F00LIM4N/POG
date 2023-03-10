@@ -30,7 +30,7 @@ body {
   margin: auto;
   font-size: 20px;
 }
-.forumRules h4 {
+.forumRules .forumRules__h4 {
   text-align: center;
   line-height: 60px;
 }
@@ -39,7 +39,7 @@ body {
   text-align: center;
   margin-top: 130px;
 }
-.forumRoomSearch input {
+.forumRoomSearch .forumRoomSearch__input {
   box-sizing: border-box;
   width: 50%;
   height: 50px;
@@ -54,20 +54,21 @@ body {
   transition: box-shadow 0.6s, background-color 0.6s;
   padding-left: 15px;
 }
-.forumRoomSearch input::-moz-placeholder {
+.forumRoomSearch .forumRoomSearch__input::-moz-placeholder {
   color: rgb(201, 201, 201);
   font-size: 15px;
 }
-.forumRoomSearch input::placeholder {
+.forumRoomSearch .forumRoomSearch__input::placeholder {
   color: rgb(201, 201, 201);
   font-size: 15px;
 }
-.forumRoomSearch input:hover {
+.forumRoomSearch .forumRoomSearch__input:hover {
   box-shadow: 0px 0px 20px rgba(255, 94, 191, 0.925);
 }
-.forumRoomSearch input:focus {
+.forumRoomSearch .forumRoomSearch__input:focus {
   outline: none;
   background-color: rgba(255, 94, 191, 0.4039215686);
+  color: #fff;
 }
 
 .roomGrid {
@@ -146,14 +147,13 @@ a:link, a:visited {
 }
 
 .arrow {
-  left: 50%;
+  left: 48%;
   position: sticky;
   bottom: 40px;
   transition: filter 0.4s;
 }
-.arrow img {
+.arrow .arrow__img {
   height: 50px;
-  margin-bottom: 20px;
 }
 
 .arrow:hover {
@@ -164,6 +164,7 @@ a:link, a:visited {
   text-align: center;
   font-size: 20px;
   line-height: 50px;
+  margin-bottom: 50px;
 }
 
 .newRoomButton {
@@ -189,7 +190,8 @@ a:link, a:visited {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 100;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 50px;
@@ -225,27 +227,46 @@ a:link, a:visited {
   box-shadow: 0px 0px 8px 8px rgba(4, 154, 241, 0.5);
   border-radius: 20px;
   margin: 30px 0px 100px 0px;
-  padding: 50px 50px 50px 50px;
+  padding: 30px 50px 50px 50px;
 }
 .roomTitleContainer .roomTitleContainerProfilPicture {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 10px;
+}
+.roomTitleContainer .roomTitleContainer__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.roomTitleContainer .roomTitleContainer__header__profil {
+  font-size: 25px;
+}
+.roomTitleContainer .roomTitleContainer__title {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .chatContainer {
-  width: 100%;
-  position: relative;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
 }
 .chatContainer .chatContainerProfilPicture {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 .chatContainer .chatContainerMessage {
   padding: 20px 20px 20px 20px;
   border: 1px solid #000000;
+}
+.chatContainer .chatContainerMessage__header {
+  justify-content: space-between;
+  display: flex;
+}
+.chatContainer .chatContainerMessage__header__profil {
+  font-size: 20px;
 }
 
 .chatContainerMessage:nth-child(even) {
@@ -253,39 +274,121 @@ a:link, a:visited {
 }
 
 .chatContainerMessage:nth-child(odd) {
-  background: #1d1d1d;
+  background: #141414;
 }
 
 .newMessage {
   position: fixed;
-  bottom: 0;
+  bottom: 25px;
   border: 2px solid #FF5EBE;
   box-shadow: 0px 0px 15px rgba(255, 94, 190, 0.5);
-  background-color: #252525;
+  background-color: #1d1d1d;
+  color: rgb(175, 175, 175);
 }
 
 .room__ifNotConnected {
   text-align: center;
+  margin: -200px 0 100px 0;
+}
+
+.room__btnnewmessage {
+  margin-bottom: 10px;
+}
+
+.room__chatContainer__date {
+  text-align: end;
+}
+
+.room__chatContainer__profil {
+  margin-bottom: 0;
+}
+
+.newRoom__h1 {
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 130px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: 50px;
+  color: #fff;
+  text-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
+}
+
+.newRoom__submit {
+  margin-top: 30px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.newRoom__title {
+  width: 60%;
+  margin-left: 20%;
+  color: #fff;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.newRoom__title {
+  display: flex;
+  justify-content: center;
+  background-color: #141414;
+}
+
+.newRoom__title:focus {
+  background-color: #141414;
+  outline: none;
+  color: #fff;
+}
+
+.newRoom__title::-moz-placeholder {
+  color: #a8a6a6;
+}
+
+.newRoom__title::placeholder {
+  color: #a8a6a6;
+}
+
+.newRoom__content {
+  background-color: #1d1d1d;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  color: #fff;
+  padding: 10px;
 }
 
 textarea {
   width: 100%;
-  height: 200px;
+  height: 100px;
   background-color: #1d1d1d;
   color: #fff;
+  resize: none;
+  outline: none;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
 }
 
-.chatFields {
-  display: none;
+.newChat__h4 {
+  text-align: end;
+  margin: 10px 10px 10px 0;
+}
+
+.newChat__submit {
+  margin: 7px 0px 10px 7px;
 }
 
 .register__h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: italic;
-  font-size: 60px;
-  line-height: 130px;
+  font-size: 70px;
   text-align: center;
   letter-spacing: 0.05em;
+  margin: 80px 0 100px 0;
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
 }
@@ -304,10 +407,10 @@ textarea {
 .login__h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: italic;
-  font-size: 60px;
-  line-height: 130px;
+  font-size: 70px;
   text-align: center;
   letter-spacing: 0.05em;
+  margin: 80px 0 100px 0;
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 2px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
 }
@@ -338,4 +441,4 @@ textarea {
 
 .check_email {
   text-align: center;
-}/*# sourceMappingURL=app.css.map */
+}

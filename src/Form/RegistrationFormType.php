@@ -111,6 +111,7 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'label' => 'Mot de passe',
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
@@ -138,15 +139,20 @@ class RegistrationFormType extends AbstractType
             ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
                 $form = $event->getForm();
                 $user = $form->getData();
-
+                
                 $token = $user->getToken();
-
+                $picture = $user->getPicture();
+                
                 if (empty($token)) {
                     // Générer une chaîne aléatoire de longueur aléatoire entre 20 et 200 caractères
                     $length = mt_rand(20, 200);
                     $token = bin2hex(random_bytes($length));
                     // Assigner la valeur de la chaîne aléatoire au champ "token" de l'objet User
                     $user->setToken($token);
+                }
+                if(empty($picture)) {
+                    $picture = "/assets/img/profil.png";
+                    $user->setPicture($picture);
                 }
             });
     }

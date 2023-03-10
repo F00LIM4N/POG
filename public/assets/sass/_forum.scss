@@ -41,7 +41,7 @@ body {
     margin: auto;
     font-size: 20px;
     
-    h4 {
+    .forumRules__h4 {
         text-align: center;
         line-height: 60px;
     }
@@ -52,7 +52,7 @@ body {
     text-align: center;
     margin-top: 130px;
     
-    input {
+    .forumRoomSearch__input {
         box-sizing: border-box;
         width: 50%;
         height: 50px;
@@ -70,17 +70,18 @@ body {
         transition: box-shadow 0.6s, background-color 0.6s;
         padding-left: 15px;
     }
-    input::placeholder {
+    .forumRoomSearch__input::placeholder {
         color: rgb(201, 201, 201);
         font-size: 15px;
     }
     
-    input:hover {
+    .forumRoomSearch__input:hover {
         box-shadow: 0px 0px 20px rgba(255, 94, 191, 0.925);
-      }
-    input:focus {
+    }
+    .forumRoomSearch__input:focus {
         outline: none;
         background-color: #ff5ebf67;
+        color: #fff;
       }
 
 }
@@ -145,24 +146,23 @@ a:link, a:visited {
 }
 
 .arrow {
-    left: 50%;
+    left: 48%;
     position : sticky; 
     bottom : 40px;
     transition: filter 0.4s;
-    img {
+    .arrow__img {
         height: 50px;
-        margin-bottom: 20px;
     }  
 }
 .arrow:hover {
     filter: drop-shadow(0px 0px 5px rgba(255, 94, 191, 0.925));
-
 }
 
 .newRoomContainer {
     text-align: center;
     font-size: 20px;
     line-height: 50px;
+    margin-bottom: 50px;
 }
 
 .newRoomButton {

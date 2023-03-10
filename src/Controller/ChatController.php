@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Entity\Chat;
 use App\Form\ChatType;
 use App\Repository\ChatRepository;
-use App\Repository\RoomRepository;
-use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,24 +22,10 @@ class ChatController extends AbstractController
     }
 
     #[Route('/new', name: 'app_chat_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ChatRepository $chatRepository, RoomRepository $roomRepository, UserRepository $userRepository, $id): Response
+    public function new(Request $request, ChatRepository $chatRepository): Response
     {
         $chat = new Chat();
-
-        // Récupérer la Room sélectionnée par l'utilisateur
-        $room = $this->getDoctrine()->getRepository(Room::class)->find($id);
-        // Renseigner l'ID de la Room dans le formulaire de Chat
-        $chat->setRoom($room);
-        //Récupérer l'ID du user connecté
-        $user = $this->getUser();
-        $userId = $user->getId();
-        $user = $userRepository->find($userId);
-
-        $form = $this->createForm(ChatType::class, $chat, [
-            'user' => $user,
-            'action' => $this->generateUrl('chat_create', ['roomId' => $id]),
-            'method' => 'POST',
-        ]);
+        $form = $this->createForm(ChatType::class, $chat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,8 +37,6 @@ class ChatController extends AbstractController
         return $this->renderForm('chat/new.html.twig', [
             'chat' => $chat,
             'form' => $form,
-            'rooms' => $roomRepository->findAll(),
-            'users' => $userRepository->findAll(),
         ]);
     }
 
