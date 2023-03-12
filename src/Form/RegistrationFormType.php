@@ -151,7 +151,7 @@ class RegistrationFormType extends AbstractType
                     $user->setToken($token);
                 }
                 if(empty($picture)) {
-                    $picture = "/assets/img/profil.png";
+                    $picture = "profil.png";
                     $user->setPicture($picture);
                 }
             });

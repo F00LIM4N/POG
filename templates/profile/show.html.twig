@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="profil__h1"><small>Profil de </small><br>{{ user.pseudo }}</h1>
+    <img class="profile__picture rounded mx-auto d-block" src="/uploads/pictures/{{ user.picture }}">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Prénom et Nom</th>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ user.dateBirth ? user.dateBirth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ user.description }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+        </tbody>
+    </table>   
+
+    <a class="btn btn-outline-light btn-lg" href="{{ path('app_profile_edit') }}">Modifier le profil</a>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@
 			<div class="roomTitleContainer__header">
 			{% for user in users %}
 				{% if room.user.id == user.id %}
-				<p class="roomTitleContainer__header__profil"><img class="roomTitleContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
+				<p class="roomTitleContainer__header__profil"><img class="roomTitleContainerProfilPicture" src="/uploads/pictures/{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
 				{% endif %}
 			{% endfor %}
 			{{ room.dateRoom ? room.dateRoom|date('d-m-Y') : '' }}
@@ -28,7 +28,7 @@
 						<div class="chatContainerMessage__header">
 							{% for user in users %}
 								{% if chat.user.id == user.id %}
-								<p class="chatContainerMessage__header__profil"><img class="chatContainerProfilPicture" src="{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
+								<p class="chatContainerMessage__header__profil"><img class="chatContainerProfilPicture" src="/uploads/pictures/{{ user.picture }}" alt="Photo de profil">{{ user.pseudo }}</p>
 								{% endif %}
 							{% endfor %}
 							{{chat.date|date('d-m-Y | H:i')}}
