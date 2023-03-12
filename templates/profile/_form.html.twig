@@ -1,4 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="profile__linkEdit">
+    <button class="btn btn-info btn-lg mt-5">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

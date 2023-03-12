@@ -3,35 +3,47 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 class="profil__h1"><small>Profil de </small><br>{{ user.pseudo }}</h1>
-    <img class="profile__picture rounded mx-auto d-block" src="/uploads/pictures/{{ user.picture }}">
+    <div class="profile__header container-fluid">
+        <h1 class="profile__h1">{{ user.pseudo }}</h1>
+        <img class="profile__picture rounded-circle" src="/uploads/pictures/{{ user.picture }}">
+    </div>
+    <div class="container">
+        <div class="profile__description p-5">
+        {{ user.description ? user.description : "Pas de description"}}
+        </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Prénom et Nom</th>
-                <td>{{ user.firstname }} {{ user.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Date de naissance</th>
-                <td>{{ user.dateBirth ? user.dateBirth|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ user.description }}</td>
-            </tr>
-            <tr>
-                <th>Téléphone</th>
-                <td>{{ user.phone }}</td>
-            </tr>
-        </tbody>
-    </table>   
-
-    <a class="btn btn-outline-light btn-lg" href="{{ path('app_profile_edit') }}">Modifier le profil</a>
-</div>
+        <div class="profile__div__table">
+            <table class="profile__table">
+                <tbody>
+                    <tr>
+                        <th>Prénom Nom : </th>
+                        <td>{{ user.firstname }} {{ user.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email : </th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de naissance : </th>
+                        <td>{{ user.dateBirth ? user.dateBirth|date('d-m-Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse : </th>
+                        <td>{{ user.address.getNameAddress() }}, 
+                            {{ user.address.city.getNameCity() }}, 
+                            {{ user.address.city.country.getNameCountry() }} 
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Téléphone : </th>
+                        <td>{{ user.phone ? user.phone : "Non renseigné" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+        <div class="profile__linkEdit">
+        <a class="btn btn-outline-light btn-lg mt-5" href="{{ path('app_profile_edit') }}">Modifier le profil</a>
+        <div>
+    </div>
 {% endblock %}

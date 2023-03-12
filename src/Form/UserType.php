@@ -39,6 +39,9 @@ class UserType extends AbstractType
             ])
             ->add('picture', FileType::class, [
                 'label' => 'Image de profil',
+                'attr' => [
+                    'class' => 'form-control',
+                ],
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,

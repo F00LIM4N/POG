@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,8 +19,14 @@ class ProfileController extends AbstractController
     public function show(): Response
     {
         $user = $this->getUser();
+        $address = $user->getAddress();
+        $city = $address->getCity();
+        $country = $city->getCountry();
         return $this->render('profile/show.html.twig', [
             'user' => $user,
+            'address' => $address,
+            'city' => $city,
+            'country' => $country,
         ]);
     }
 

@@ -5,9 +5,10 @@
 {% block body %}
     <div class="container">
         <a href="{{ path('app_profile_show') }}"><button class="room__button__returnForum" style="vertical-align:middle"><span>Retourner sur la page de profil</span></button></a>
-        <h1>Modifier le profil</h1>
 
-        {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
+        <h1 class="profile__edit__h1">Modifier le profil</h1>
+
+        {{ include('profile/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
 
     </div>
 {% endblock %}
