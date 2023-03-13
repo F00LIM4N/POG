@@ -45,7 +45,7 @@ class RoomController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $roomRepository->save($room, true);
 
-            return $this->redirectToRoute('app_room_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_room_show', ['id' => $room->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('room/new.html.twig', [
