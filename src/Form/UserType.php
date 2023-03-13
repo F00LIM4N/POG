@@ -64,8 +64,7 @@ class UserType extends AbstractType
                         'mimeTypesMessage' => "Merci de choisir un format d'image valide",
                     ])
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
