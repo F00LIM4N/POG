@@ -25,11 +25,18 @@ class CartController extends AbstractController
         foreach ($panier as $id => $quantity) {
             $game = $gameRepository->find($id);
             $dataPanier[] = [
-                "game" => $game,
+                "game" => $gameRepository->find($id),
                 "quantity" => $quantity
             ];
             $total += $game->getPriceGame() * $quantity;
         }
+
+        foreach ($dataPanier as $item) {
+            $totalItem = $item['game']->getPriceGame() * $item['quantity'];
+            $total += $totalItem;
+        }
+        $session->set("total", $total);
+
 
         return $this->render('cart/index.html.twig', compact("dataPanier", "total"));
     }
