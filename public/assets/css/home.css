@@ -35,6 +35,10 @@
   color: white;
 }
 
+.NavbarMidPosition {
+  z-index: 999;
+}
+
 .marginForCarousel {
   margin: 200px;
 }
