@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block body %}
-
+	{% block navbar %}
+		{% include 'navbar.html.twig' %}
+	{% endblock %}
 	<div class="container">
 		<h1 class="cart__h1">Votre panier</h1>
 

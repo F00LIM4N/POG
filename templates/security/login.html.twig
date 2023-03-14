@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block body %}
+	{% block navbar %}
+		{% include 'navbar.html.twig' %}
+	{% endblock %}
 	<form method="post" class="m-auto">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

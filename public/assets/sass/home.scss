@@ -5,6 +5,7 @@
 //         border-color: lighten(nth($colors, $i), 20%);
 //     }
 // }
+
 .LeoTest{
     position: absolute;
     img{
@@ -30,6 +31,9 @@
         -webkit-box-shadow:0px 0px 20px 10px rgba(255,0,153,0.9);
         -moz-box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
         box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);
+        img{
+            filter: drop-shadow(2px 1px 17px #48dfff);
+        }
         h1{
             color: white;
         }
@@ -48,6 +52,8 @@
 
 .NavbarMidPosition {
     z-index: 999;
+    position: sticky;
+    top: 0;
 }
 
 .marginForCarousel{

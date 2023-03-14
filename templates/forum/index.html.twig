@@ -5,6 +5,9 @@
 
 {% block body %}
 	<div>
+		{% block navbar %}
+			{% include 'navbar.html.twig' %}
+		{% endblock %}
 		<h1 class="forum__h1">Forum</h1>
 		<div class="forumRules">
 			<h4 class="forumRules__h4">Bienvenue sur le forum de POG</h4>
