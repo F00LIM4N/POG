@@ -28,21 +28,29 @@
 			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 			{#
-			Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-			See https://symfony.com/doc/current/security/remember_me.html
-			
-			<div class="checkbox mb-3">
-			<label>
-			<input type="checkbox" name="_remember_me"> Remember me
-			</label>
-			</div>
-			#}
+												Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+												See https://symfony.com/doc/current/security/remember_me.html
+												
+												<div class="checkbox mb-3">
+												<label>
+												<input type="checkbox" name="_remember_me"> Remember me
+												</label>
+												</div>
+												#}
 
 			<button class="login__button__submit btn btn-lg btn-primary mt-5" type="submit">
 				Se connecter
 			</button>
 		</form>
-
-
 	</div>
+	<input type="hidden" id="form_captcha" name="form[captcha]"/><script>
+		var recaptchaCallback_form_captcha = function () {
+grecaptcha.execute('<6LdPFuAkAAAAAApHk0zWwlUVW3D8Y1gRE3BN6tiD>', {action: 'landing'}).then(function (token) {
+document.getElementById('form_captcha').value = token;
+});
+};
+	</script>
+	<script src="https://www.google.com/recaptcha/api.js%22%3E"></script>
+
+	<script src="https://www.google.com/recaptcha/api.js?render=<6LdPFuAkAAAAAApHk0zWwlUVW3D8Y1gRE3BN6tiD>&onload=recaptchaCallback_form_captcha" async defer></script>
 {% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - POG
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-wOkI+rldtbZ9poyxDjKcZf+jkt2Q+LMoI5YKmwo0mzJvjEod1/DI9XmLhPjKZmIFwNzmnNDbux45JIdR+mOQLg==" crossorigin="anonymous" referrerpolicy="no-referrer"/> #}
+	<style>
+		/* Add your custom CSS here */
+		.form-group label {
+			font-weight: bold;
+		}
+		.alert {
+			margin-top: 10px;
+		}
+	</style>
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<h1 class="my-4">Contact us</h1>
+		{% if message is defined %}
+			<div class="alert alert-{{ message.type }}">{{ message.text }}</div>
+		{% endif %}
+
+		<form action="{{ path('app_contact') }}" method="post" enctype="multipart/form-data">
+
+
+			<div class="mb-3">
+				<label for="subject" class="form-label">You mail</label>
+				<input type="email" id="subject" name="subject" class="form-control" required>
+			</div>
+			<div class="mb-3">
+				<label for="body" class="form-label">You messagee</label>
+				<textarea id="body" name="body" class="form-control" rows="5" required></textarea>
+
+				<div class="mb-3">
+					<label for="attachment" class="form-label">Attachment</label>
+					<label class="custom-file-upload">
+
+						<input type="file" id="attachment" name="attachment" class="form-control-file">
+					</label>
+				</div>
+				<scriptSend src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js%22%3E"></script>
+				<script>
+					ckeditor.replace('body');
+				</script>
+			</div>
+			<button class="btn btn-primary">
+				email</button>
+		</form>
+	</div>
+{% endblock %}
