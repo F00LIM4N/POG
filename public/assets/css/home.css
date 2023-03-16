@@ -37,6 +37,15 @@
   cursor: pointer;
   color: white;
 }
+.FirstViewBody nav .navbar_logo_pog {
+  height: 43px;
+  opacity: 0;
+  display: none;
+}
+.FirstViewBody nav .navbar_logo_pog.show {
+  opacity: 1;
+  display: block;
+}
 
 .NavbarMidPosition {
   z-index: 999;

@@ -4,37 +4,42 @@
 {% endblock %}
 
 {% block body %}
-	{% block navbar %}
-		{% include 'navbar.html.twig' %}
-	{% endblock %}
+	<div style="position: fixed; width: 100%; box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);">
+		{% block navbar %}
+			{% include 'navbar.html.twig' %}
+		{% endblock %}
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				<h1 class="register__h1">Inscription</h1>
+				
+				<div class="register__form">
+					{{ form_start(registrationForm) }}
 
-				{{ form_start(registrationForm) }}
+					<fieldset class="mt-5">
+						<legend class="register__legend">Mon identité</legend>
+						{{ form_row(registrationForm.lastname) }}
+						{{ form_row(registrationForm.firstname) }}
+						{{ form_row(registrationForm.pseudo) }}
+						{{ form_row(registrationForm.date_birth) }}
+						{{ form_row(registrationForm.plainPassword) }}
+						<br>
+						{{ form_row(registrationForm.authentification) }}
+					</fieldset>
 
-				<fieldset class="mt-5">
-					<legend class="register__legend">Mon identité</legend>
-					{{ form_row(registrationForm.lastname) }}
-					{{ form_row(registrationForm.firstname) }}
-					{{ form_row(registrationForm.pseudo) }}
-					{{ form_row(registrationForm.date_birth) }}
-					{{ form_row(registrationForm.plainPassword) }}
+					<fieldset class="mt-5">
+						<legend class="register__legend">Mes coordonnées</legend>
+						{{ form_row(registrationForm.phone) }}
+						{{ form_row(registrationForm.address) }}
+						{{ form_row(registrationForm.email) }}
+					</fieldset>
 					<br>
-					{{ form_row(registrationForm.authentification) }}
-				</fieldset>
-
-				<fieldset class="mt-5">
-					<legend class="register__legend">Mes coordonnées</legend>
-					{{ form_row(registrationForm.phone) }}
-					{{ form_row(registrationForm.address) }}
-					{{ form_row(registrationForm.email) }}
-				</fieldset>
-				<br>
-				{{ form_row(registrationForm.agreeTerms) }}
-				<button type="submit" class="register__button__submit btn btn-lg btn-primary mt-5 mb-5">Envoyer</button>
-				{{ form_end(registrationForm) }}
+					{{ form_widget(registrationForm.agreeTerms) }}
+					{{ form_label(registrationForm.agreeTerms) }}
+					<button type="submit" class="register__button__submit btn btn-lg btn-primary mt-4 mb-5">Envoyer</button>
+					{{ form_end(registrationForm) }}
+				</div>
 			</div>
 		</div>
 	</div>

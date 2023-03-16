@@ -31,10 +31,12 @@ class CartController extends AbstractController
             $total += $game->getPriceGame() * $quantity;
         }
 
-        foreach ($dataPanier as $item) {
-            $totalItem = $item['game']->getPriceGame() * $item['quantity'];
-            $total += $totalItem;
-        }
+        // foreach ($dataPanier as $item) {
+        //     $totalItem = $item['game']->getPriceGame() * $item['quantity'];
+        //     $total += $totalItem;
+
+        // }
+        
         $session->set("total", $total);
 
 

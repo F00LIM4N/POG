@@ -47,6 +47,15 @@
             cursor: pointer;
             color: white;
         }
+        .navbar_logo_pog {
+            height: 43px;
+            opacity: 0;
+            display: none;
+        }
+        .navbar_logo_pog.show {
+            opacity: 1;
+            display: block;
+          }
     }
 }
 

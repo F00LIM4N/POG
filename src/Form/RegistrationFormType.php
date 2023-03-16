@@ -89,7 +89,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'attr' => [
-                    'class' => 'form-check-input'
+                    'class' => 'form-check-input',
                 ],
                 'mapped' => false,
                 'constraints' => [
@@ -97,7 +97,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez accepter pour pouvoir valider l\'inscription',
                     ]),
                 ],
-                'label' => 'En cochant cette case, j\'accepte les conditions d\'utilisation du site POG.'
+                'label' => 'En cochant cette case, j\'accepte les conditions d\'utilisation du site POG. '
             ])
             ->add('authentification', EntityType::class, [
                 'class' => Twofa::class,

@@ -9,10 +9,10 @@ body {
   font-style: italic;
   font-weight: 800;
   font-size: 90px;
-  line-height: 130px;
+  line-height: 400px;
   text-align: center;
   letter-spacing: 0.05em;
-  margin-bottom: 50px;
+  margin-bottom: -40px;
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
 }
@@ -388,23 +388,30 @@ textarea {
   font-size: 70px;
   text-align: center;
   letter-spacing: 0.05em;
-  margin: 80px 0 100px 0;
+  margin-top: 130px;
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
 }
 
-.register__legend {
+.register__form {
+  display: flex;
+  justify-content: center;
+}
+.register__form .register__legend {
   font-size: 30px;
   letter-spacing: 0.05em;
   color: #00b7ff;
 }
-
-.register__button__submit {
+.register__form .register__button__submit {
   margin: auto;
   display: flex;
 }
 
-.login__h1 {
+.login__form {
+  display: flex;
+  margin-top: 120px;
+}
+.login__form .login__h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: italic;
   font-size: 70px;
@@ -414,13 +421,11 @@ textarea {
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 2px #fff, 0 0 42px rgb(230, 18, 124), 0 0 77px rgb(230, 18, 124), 0 0 100px rgb(230, 18, 124);
 }
-
-.login__button__submit {
+.login__form .login__button__submit {
   margin: auto;
   display: flex;
 }
-
-.login__passforgot {
+.login__form .login__passforgot {
   text-align: center;
 }
 
@@ -518,4 +523,8 @@ textarea {
   margin: 80px 0 100px 0;
   color: #fff;
   text-shadow: 0 0 7px #fff, 0 0 2px #fff, 0 0 42px rgb(221, 217, 3), 0 0 77px rgb(221, 217, 3), 0 0 100px rgb(221, 217, 3);
-}/*# sourceMappingURL=app.css.map */
+}
+
+.cart__img {
+  height: 100px;
+}

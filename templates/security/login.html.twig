@@ -4,9 +4,12 @@
 {% endblock %}
 
 {% block body %}
-	{% block navbar %}
-		{% include 'navbar.html.twig' %}
-	{% endblock %}
+	<div style="box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);">
+		{% block navbar %}
+			{% include 'navbar.html.twig' %}
+		{% endblock %}
+	</div>
+	<div class="login__form" style="display: flex;">
 	<form method="post" class="m-auto">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -45,6 +48,7 @@
 				Se connecter
 			</button>
 		</form>
+	</div>
 
 
 	</div>

@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	<div style="box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);">
+		{% block navbar %}
+			{% include 'navbar.html.twig' %}
+		{% endblock %}
+	</div>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-4">
@@ -17,13 +22,16 @@
 
 						<form id='checkout-form' method='post' action="{{ path('app_stripe_charge') }}">
 							<input type='hidden' name='stripeToken' id='stripe-token-id'>
-							<label for="card-element" class="mb-5">Checkout Forms</label>
+							<label for="card-element" class="mb-5">Formulaire de paiement</label>
 							<br>
 							<div id="card-element" class="form-control"></div>
-							<button id='pay-btn' class="btn btn-success mt-3" type="button" style="margin-top: 20px; width: 100%;padding: 7px;" onclick="createToken()">PAY NOW
+							<button id='pay-btn' class="btn btn-success mt-3" type="button" style="margin-top: 20px; width: 100%;padding: 7px;" onclick="createToken()">PAYER
 							</button>
-							<form></div>
+						<form>
 						</div>
+
+						</div>
+						<a href="{{ path('app_cart') }}"><button class="btn btn-danger mt-3">Retourner au panier</button></a>
 					</div>
 				</div>
 			</div>
