@@ -195,6 +195,7 @@ a:link, a:visited {
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 50px;
+  vertical-align: middle;
 }
 
 .room__button__returnForum span {
@@ -525,6 +526,31 @@ textarea {
   text-shadow: 0 0 7px #fff, 0 0 2px #fff, 0 0 42px rgb(221, 217, 3), 0 0 77px rgb(221, 217, 3), 0 0 100px rgb(221, 217, 3);
 }
 
-.cart__img {
+.cart__table {
+  table-layout: fixed;
+}
+.cart__table thead {
+  text-align: center;
+}
+.cart__table .cart__img {
   height: 100px;
+}
+.cart__table .cart__table__td-actions {
+  text-align: right;
+}
+
+.cart__icon-buy, .cart__icon-deleteAll {
+  margin-right: 15px;
+}
+
+.cart__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.cart__buttons .cart__button-buy {
+  width: 180px;
+}
+.cart__buttons button {
+  margin: 0;
 }

@@ -14,6 +14,31 @@
       0 0 100px rgb(221, 217, 3) 
 }
 
-.cart__img {
-  height: 100px;
+.cart__table {
+  table-layout: fixed;
+  thead {
+    text-align: center;
+  }
+  .cart__img {
+    height: 100px;
+  }
+  .cart__table__td-actions {
+    text-align: right;
+  }
+}
+
+.cart__icon-buy, .cart__icon-deleteAll {
+  margin-right:15px;
+}
+
+.cart__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  .cart__button-buy {
+    width: 180px;
+  }
+  button {
+    margin: 0;
+  }
 }

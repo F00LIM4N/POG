@@ -6,9 +6,9 @@
 			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
 		</div>
 		<div class="carousel-inner carouselBorders">
-			{% for game in games|slice(4, 6) %}
+			{% for game in games|slice(3, 3) %}
 				<div {% if loop.index0 == 0 %} class="carousel-item active" {% else %} class="carousel-item" {% endif %}>
-					<img src="{{ game.PictureGame }}" class="d-block w-100" alt="/assets/img/test.jpg">
+					<img src="{{ game.PictureGame }}" class="d-block w-100" alt="{{ game.NameGame }}">
 					<div class="carousel-caption d-none d-md-block InfoGameFont">
 						<h5>{{ game.NameGame }}</h5>
 						<p>{{ game.PriceGame }}€</p>
