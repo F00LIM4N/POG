@@ -3,6 +3,11 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
+    <div style="position: fixed; width: 100%; box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);">
+        {% block navbar %}
+            {% include 'navbar.html.twig' %}
+        {% endblock %}
+    </div>
     <div class="profile__header container-fluid">
         <h1 class="profile__h1">{{ user.pseudo }}</h1>
         <img class="profile__picture rounded-circle" src="/uploads/pictures/{{ user.picture }}">
@@ -26,6 +31,11 @@
                     <tr>
                         <th>Date de naissance : </th>
                         <td>{{ user.dateBirth ? user.dateBirth|date('d-m-Y') : '' }}</td>
+                        <td>
+                            <div class="profile__linkEdit">
+                                <a class="btn btn-outline-light btn-lg" href="{{ path('app_profile_edit') }}"><i class="fa-solid fa-pen-to-square fa-1x profile__icon-edit"></i>Modifier le profil</a>
+                            <div>
+                        </td>
                     </tr>
                     <tr>
                         <th>Adresse : </th>
@@ -42,8 +52,5 @@
                 </tbody>
             </table>
         </div>   
-        <div class="profile__linkEdit">
-        <a class="btn btn-outline-light btn-lg mt-5" href="{{ path('app_profile_edit') }}">Modifier le profil</a>
-        <div>
     </div>
 {% endblock %}

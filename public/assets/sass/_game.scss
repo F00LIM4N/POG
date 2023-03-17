@@ -1,3 +1,27 @@
-.table {
-  color: aliceblue;
+.game__show__h1 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 90px;
+  line-height: 400px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: -40px;
+
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 
+    0 0 42px rgb(22 64 0), 
+    0 0 77px rgb(84 218 14), 
+    0 0 100px rgb(87 255 0);
+}
+
+.game__show__picture {
+  width: 100%;
+  border-radius: 50px;
+}
+
+.game__show__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }

@@ -4,46 +4,34 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Game</h1>
+ <div style="position: fixed; width: 100%; box-shadow: 0px 0px 20px 10px rgba(255,0,153,0.9);">
+	{% block navbar %}
+		{% include 'navbar.html.twig' %}
+	{% endblock %}
+</div>
+<div class="container">
+	<h1 class="game__show__h1">Game</h1>
+	<div class="row">
+		<div class="col-sm-6">
+			<img src="{{ game.pictureGame }}" alt="{{ game.nameGame }}" class="game__show__picture">
+		</div>
+		<div class="col-sm-6">
+			<table>
+				<tr><td>{{ game.nameGame }}</td></tr>
+				<tr><td>{{ game.releaseDateGame ? game.releaseDateGame|date('Y-m-d') : '' }}</td></tr>
+				<tr><td>{{ game.priceGame }}</td></tr>
+				<tr><td>{{ game.noteGame }}</td></tr>
+			</table>
+		</div>
+	</div>
 
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ game.id }}</td>
-			</tr>
-			<tr>
-				<th>Name_game</th>
-				<td>{{ game.nameGame }}</td>
-			</tr>
-			<tr>
-				<th>ReleaseDate_game</th>
-				<td>{{ game.releaseDateGame ? game.releaseDateGame|date('Y-m-d') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Picture_game</th>
-				<td>{{ game.pictureGame }}</td>
-			</tr>
-			<tr>
-				<th>Price_game</th>
-				<td>{{ game.priceGame }}</td>
-			</tr>
-			<tr>
-				<th>Note_game</th>
-				<td>{{ game.noteGame }}</td>
-			</tr>
-			<tr>
-				<th>IsAvailable</th>
-				<td>{{ game.isAvailable ? 'Yes' : 'No' }}</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<a href="{{ path('app_home') }}" class="btn btn-dark">Retourner sur la page du magasin</a>
-
-	<a href="{{ path('app_cart_add', {id: game.id}) }}" class="btn btn-success">
-		<i class="fa-solid fa-cart-plus fa-1x"></i>
-		Ajouter au panier</a>
+	<div class="game__show__buttons">
+		<a href="{{ path('app_home') }}" class="btn btn-dark">Retourner sur la page du magasin</a>
+		<a href="{{ path('app_cart_add', {id: game.id}) }}" class="btn btn-success btn-lg">
+			<i class="fa-solid fa-cart-plus fa-1x"></i>
+			Ajouter au panier</a>
+	</div>
+</div>
 
 
 {% endblock %}
