@@ -64,7 +64,13 @@
 		</table>
 		<div class="cart__buttons">
 			<a href="{{ path('app_home')}}"><button class="btn btn-lg room__button__returnForum"><span>Retourner sur la page du magasin</span></button></a>
+
+			{% if app.user %}
 			<a href="{{ path('app_stripe')}}"><button class="btn btn-lg btn-success cart__button-buy"><i class="fa-solid fa-cart-shopping fa-1x cart__icon-buy"></i>ACHETER</button></a>
+			{% else %}
+
+			<a href="{{ path('app_login')}}"><button class="btn btn-lg btn-success cart__button-buy"><i class="fa-solid fa-cart-shopping fa-1x cart__icon-buy"></i>ACHETER</button></a>
+			{% endif %}
 		</div>
 	</div>
 
