@@ -22,6 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank()]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -31,6 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?string $password = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
@@ -42,18 +44,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?Twofa $authentification = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
     private ?string $token = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
     private ?string $pseudo = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank()]
     private ?\DateTimeInterface $dateBirth = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -63,9 +69,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $picture = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?bool $isMailValid = null;
 
     #[ORM\Column(length: 20, nullable: true)]
+    #[Assert\NotBlank()]
     private ?string $phone = null;
 
     #[ORM\Column]

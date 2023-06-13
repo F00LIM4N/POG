@@ -580,3 +580,18 @@ textarea {
 .cart__buttons button {
   margin: 0;
 }
+
+.stripe {
+  margin-top: 200px;
+}
+
+#pay-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 7px;
+}
+
+.label-pay {
+  color: black;
+  margin: auto;
+}
